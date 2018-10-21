@@ -43,7 +43,7 @@ This logindata.ini file should be placed in the directory from which the user's 
 
 ## Futher Documentation
 
-  * TO DO
+  * [Screen Scraping API](https://github.com/wusui/llama_slobber/blob/master/SCRAPING_API.md)
  
 ## Author
 
