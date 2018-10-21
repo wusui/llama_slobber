@@ -181,7 +181,7 @@ md_info = get_matchday(78, 25, 'B_Pacific')
 # EXAMPLES
 
 The first example here demonstrates the get_season, get_leagues, get_rundles, and get_onedays calls.  The second example
-demostrates the get_qhist and get_matchday calls and also demonstrates how to set and pass a session value.
+demonstrates the get_qhist and get_matchday calls and also demonstrates how to set and pass a session value.
 
 ```python
 (slobber)$ python
