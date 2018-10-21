@@ -107,7 +107,7 @@ class MatchDay(object):
         return self.info
 
 
-def get_matchday(season, day, rundle):
+def get_matchday(season, day, rundle, session=get_session()):
     """
     Extract match day information
 
@@ -127,7 +127,7 @@ def get_matchday(season, day, rundle):
         The second entry is a dictionary of values related to the entire
         match day object (league, rundle, division, day, season).
     """
-    matchday = MatchDay(season, day, rundle)
+    matchday = MatchDay(season, day, rundle, session=session)
     return [matchday.get_results(), matchday.get_info()]
 
 
