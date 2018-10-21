@@ -31,7 +31,7 @@ session_id = get_session()
 
 ### ll_local_io.get_page_data(url, parser)
 
-Arguments
+Arguments:
   * url -- URL of web page to be parsed.
   * parser -- HTMLParser class used for parsing
   
@@ -59,3 +59,46 @@ season_number = get_season()
 ```
 
 ***
+
+### ll_leagues.get_leagues(season)
+
+Arguments:
+  * season -- season number (int)
+
+Returns -- list of league names
+
+##### USAGE
+
+```python
+from llama_slobber.ll_leagues import get_leagues
+.
+.
+.
+leagues = get_leagues(78)
+```
+
+***
+
+### ll_rundles.get_rundles(season, league)
+
+Arguments:
+  * season -- season number (int)
+  * league -- league name (string)
+
+Returns -- list of rundles in this league
+
+##### USAGE
+
+```python
+from llama_slobber.ll_rundles import get_rundles
+.
+.
+.
+rlist = get_rundles(78, 'Pacific')
+```
+
+***
+
+
+
+
