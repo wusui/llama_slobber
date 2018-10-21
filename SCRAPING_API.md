@@ -150,3 +150,74 @@ my_hist = get_qhist('UsuiW')
 
 ### ll_matchday.get_matchday(season, day, rundle)
 
+Arguments:
+  * season -- season number
+  * day -- match day number
+  * rundle -- rundle name
+  
+Returns -- a two item list.  The first item is extracted data from the rundle's page for the specified match day.
+The second item is metadata.
+
+The first item is a dictionary of data extracted from the web page.  Each entry in the returned dictionary
+is indexed by the name of a player in that rundle.
+
+The corresponding value of each entry is another dictionary containing the following elements:
+  * 'opp' -- the player's opponent for that match
+  * 'answers' -- a 6 item list corresponding to this player's answers for the six questions on that day.  Values can be '0' (for incorrect), '1' (for correct), or 'F' (for forfeit).
+  * 'ratings' -- a 6 item list of integer values corresponding to how that player was defended for each question.
+  
+##### USAGE
+  
+```python
+from llama_slobber.ll_matchday import get_matchday
+.
+.
+.
+md_info = get_matchday(78, 25, 'B_Pacific')
+```
+  
+***
+
+# EXAMPLES
+
+The first example here demonstrates the get_season, get_leagues, get_rundles, and get_onedays calls.  The second example
+demostrates the get_qhist and get_matchday calls and also demonstrates how to set and pass a session value.
+
+```python
+(slobber)$ python
+Python 3.6.2 (default, Jul 23 2018, 10:46:18)
+[GCC 4.8.4] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+>>> from llama_slobber.ll_season import get_season
+>>> from llama_slobber.ll_leagues import get_leagues
+>>> from llama_slobber.ll_rundles import get_rundles
+>>> from llama_slobber.ll_onedays import get_onedays
+>>> get_season()
+78
+>>> get_leagues(66)
+['Alpine', 'Central', 'Coastal', 'Corridor', 'Frontier', 'Highland', 'Horizon', 'Maritime', 'Memorial', 'Meridian', 'Metro', 'Midland', 'Pacific', 'Seaboard', 'Sequoia', 'Skyline', 'Sugarloaf']
+>>> get_rundles(78, 'Pacific')
+['A_Pacific', 'B_Pacific', 'C_Pacific_Div_1', 'C_Pacific_Div_2', 'D_Pacific_Div_1', 'D_Pacific_Div_2', 'E_Pacific_Div_1', 'E_Pacific_Div_2', 'R_Pacific_Div_1', 'R_Pacific_Div_2']
+>>> get_onedays()[0:2]
+[['Oct 13, 2018', 'nationalism', 'Nationalism'], ['Oct 13, 2018', 'justimagesmathematics', 'Just Images Mathematics']]
+```
+
+```python
+(slobber)$ python
+Python 3.6.2 (default, Jul 23 2018, 10:46:18)
+[GCC 4.8.4] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from llama_slobber.ll_local_io import get_session
+>>> from llama_slobber.ll_qhist import get_qhist
+>>> from llama_slobber.ll_matchday import get_matchday
+>>> session_id = get_session()
+>>> q = get_qhist('usuiw', session=session_id)
+>>> q['MATH']['correct'][0:10]
+['78-24-1', '78-9-5', '77-13-5', '77-7-4', '77-4-6', '76-25-6', '76-19-2', '76-1 1-2', '76-7-1', '75-25-1']
+>>> m = get_matchday(78, 25, 'B_Pacific', session=session_id)
+>>> print(m[1])
+{'season': 78, 'day': 25, 'rundle': 'B', 'league': 'Pacific', 'division': 0}
+>>> m[0]['UsuiW']
+{'opp': 'HegerA', 'ratings': [2, 1, 1, 3, 0, 2], 'answers': ['0', '1', '1', '1', '1', '0']}
+```
