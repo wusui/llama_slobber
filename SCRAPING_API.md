@@ -99,6 +99,54 @@ rlist = get_rundles(78, 'Pacific')
 
 ***
 
+### ll_onedays.get_onedays()
 
+Returns -- list of one-day contests.  Each entry in this list is a list that consists of:
+  * the date that this contest took place (example: 'Jul 18, 2018')
+  * the abbreviated name of this contest (example: '60sspycraze')
+  * the full name of this contest (example: 'The 60s Spy Craze')
+  
+##### USAGE
 
+```python
+from llama_slobber.ll_onedays import get_onedays
+.
+.
+.
+olist = get_onedays()
+```
+
+***
+
+### ll_qhist.get_qhist(player)
+
+Arguments:
+  * player -- player's name
+
+Returns -- the question history for the player
+
+The return value is a dictionary whose keys correspond to each question category found on the Question History tab.
+Each entry consists of a dictionary with two keys ('correct' and 'wrong').  These values of these entries are lists
+of questions depending on whether this person got the question right or wrong.
+
+The indivual questions are indicated by a dash separated string of numbers whose values in order are:
+  * season number
+  * day number
+  * question number
+
+78-13-5 for example would be the fifth question on day 13 of season 78.
+
+##### USAGE
+
+```python
+from llama_slobber.ll_qhist import get_qhist
+.
+.
+.
+my_hist = get_qhist('UsuiW')
+```
+
+***
+
+### ll_matchday.get_matchday(season, day, rundle)
 
