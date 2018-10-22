@@ -121,7 +121,7 @@ olist = get_onedays()
 ### get_qhist(player)
 
 Arguments:
-  * player -- name of the player (in capitalized form ('UsuiW'))
+  * player -- name of the player
 
 Returns -- the question history for the player
 
