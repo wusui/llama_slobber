@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="llama_slobber",
-    version="0.0.9",
+    version="0.0.13",
     author="Warren Usui",
     author_email="warrenusui@gmail.com",
     description="Slobr utilities",

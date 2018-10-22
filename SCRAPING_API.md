@@ -11,7 +11,7 @@ These classes are not documented as part of the API.
 
 ***
 
-### ll_local_io.get_session()
+### get_session()
 
 Returns -- session id
 
@@ -20,7 +20,7 @@ Routine used to obtain a session id.  This session id can be passed as a keyword
 ##### USAGE
 
 ```python
-from llama_slobber.ll_local_io import get_session
+from llama_slobber import get_session
 .
 .
 .
@@ -29,7 +29,7 @@ session_id = get_session()
 
 ***
 
-### ll_local_io.get_page_data(url, parser)
+### get_page_data(url, parser)
 
 Arguments:
   * url -- URL of web page to be parsed.
@@ -42,7 +42,7 @@ but is available if one wants to extract data using their own HTMLParser class.
 
 ***
 
-### ll_season.get_season()
+### get_season()
 
 Returns -- the current season number, or the last completed season if between seasons  (int)
 
@@ -51,7 +51,7 @@ This method reads the main Learned League page to extract the current season num
 ##### USAGE
 
 ```python
-from llama_slobber.ll_season import get_season
+from llama_slobber import get_season
 .
 .
 .
@@ -60,7 +60,7 @@ season_number = get_season()
 
 ***
 
-### ll_leagues.get_leagues(season)
+### get_leagues(season)
 
 Arguments:
   * season -- season number (int)
@@ -70,7 +70,7 @@ Returns -- list of league names
 ##### USAGE
 
 ```python
-from llama_slobber.ll_leagues import get_leagues
+from llama_slobber import get_leagues
 .
 .
 .
@@ -79,7 +79,7 @@ leagues = get_leagues(78)
 
 ***
 
-### ll_rundles.get_rundles(season, league)
+### get_rundles(season, league)
 
 Arguments:
   * season -- season number (int)
@@ -90,7 +90,7 @@ Returns -- list of rundles in this league
 ##### USAGE
 
 ```python
-from llama_slobber.ll_rundles import get_rundles
+from llama_slobber import get_rundles
 .
 .
 .
@@ -99,7 +99,7 @@ rlist = get_rundles(78, 'Pacific')
 
 ***
 
-### ll_onedays.get_onedays()
+### get_onedays()
 
 Returns -- list of one-day contests.  Each entry in this list is a list that consists of:
   * the date that this contest took place (example: 'Jul 18, 2018')
@@ -109,7 +109,7 @@ Returns -- list of one-day contests.  Each entry in this list is a list that con
 ##### USAGE
 
 ```python
-from llama_slobber.ll_onedays import get_onedays
+from llama_slobber import get_onedays
 .
 .
 .
@@ -118,10 +118,10 @@ olist = get_onedays()
 
 ***
 
-### ll_qhist.get_qhist(player)
+### get_qhist(player)
 
 Arguments:
-  * player -- player's name
+  * player -- name of the player (in capitalized form ('UsuiW'))
 
 Returns -- the question history for the player
 
@@ -139,7 +139,7 @@ The indivual questions are indicated by a dash separated string of numbers whose
 ##### USAGE
 
 ```python
-from llama_slobber.ll_qhist import get_qhist
+from llama_slobber import get_qhist
 .
 .
 .
@@ -148,14 +148,15 @@ my_hist = get_qhist('UsuiW')
 
 ***
 
-### ll_matchday.get_matchday(season, day, rundle)
+### get_matchday(season, day, rundle)
 
 Arguments:
   * season -- season number
   * day -- match day number
   * rundle -- rundle name
   
-Returns -- a two item list.  The first item is extracted data from the rundle's page for the specified match day.
+Returns -- a two item list.  The first item is extracted data from the
+page for the specified rundle on the specified match day.
 The second item is metadata.
 
 The first item is a dictionary of data extracted from the web page.  Each entry in the returned dictionary
@@ -169,7 +170,7 @@ The corresponding value of each entry is another dictionary containing the follo
 ##### USAGE
   
 ```python
-from llama_slobber.ll_matchday import get_matchday
+from llama_slobber import get_matchday
 .
 .
 .
@@ -189,10 +190,10 @@ Python 3.6.2 (default, Jul 23 2018, 10:46:18)
 [GCC 4.8.4] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
->>> from llama_slobber.ll_season import get_season
->>> from llama_slobber.ll_leagues import get_leagues
->>> from llama_slobber.ll_rundles import get_rundles
->>> from llama_slobber.ll_onedays import get_onedays
+>>> from llama_slobber import get_season
+>>> from llama_slobber import get_leagues
+>>> from llama_slobber import get_rundles
+>>> from llama_slobber import get_onedays
 >>> get_season()
 78
 >>> get_leagues(66)
@@ -208,9 +209,9 @@ Type "help", "copyright", "credits" or "license" for more information.
 Python 3.6.2 (default, Jul 23 2018, 10:46:18)
 [GCC 4.8.4] on linux
 Type "help", "copyright", "credits" or "license" for more information.
->>> from llama_slobber.ll_local_io import get_session
->>> from llama_slobber.ll_qhist import get_qhist
->>> from llama_slobber.ll_matchday import get_matchday
+>>> from llama_slobber import get_session
+>>> from llama_slobber import get_qhist
+>>> from llama_slobber import get_matchday
 >>> session_id = get_session()
 >>> q = get_qhist('usuiw', session=session_id)
 >>> q['MATH']['correct'][0:10]
@@ -218,6 +219,6 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> m = get_matchday(78, 25, 'B_Pacific', session=session_id)
 >>> print(m[1])
 {'season': 78, 'day': 25, 'rundle': 'B', 'league': 'Pacific', 'division': 0}
->>> m[0]['UsuiW']
-{'opp': 'HegerA', 'ratings': [2, 1, 1, 3, 0, 2], 'answers': ['0', '1', '1', '1', '1', '0']}
+>>> m[0]['UsuiW']['ratings']
+[2, 1, 1, 3, 0, 2]
 ```
