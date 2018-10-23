@@ -2,9 +2,8 @@
 
 Llama_slobber is a package of python3 tools useful for Learned League data analysis.
 
-Right now, it consists of screen scraping routines which can be used to extract data from Learned League web pages.
-Eventually it will also include routines that will calculate various obscure metrics and possibly have other tools
-useful for other Llamas.
+Right now, it consists of screen scraping routines which can be used to extract data from Learned League web pages, a HUN number calculator, and some minor
+formatting routines.
 
 ## Name Origin
 
@@ -44,6 +43,7 @@ This logindata.ini file should be placed in the directory from which the user's 
 ## Futher Documentation
 
   * [Screen Scraping API](https://github.com/wusui/llama_slobber/blob/master/SCRAPING_API.md)
+  * [Metrics API](https://github.com/wusui/llama_slobber/blob/master/METRICS_API.md)
  
 ## Author
 
