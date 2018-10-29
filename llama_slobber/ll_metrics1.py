@@ -4,8 +4,8 @@
 """
 Implement some metrics.
 """
-
 import math
+from llama_slobber.ll_qhist import get_session
 from llama_slobber.ll_qhist import get_qhist
 
 
@@ -20,7 +20,7 @@ def format_float(number, decimal_places):
     return value
 
 
-def calc_hun(player1, player2):
+def calc_hun(player1, player2, session_id=None):
     """
     Calculate Hamill/Usui numbers
 
@@ -35,10 +35,12 @@ def calc_hun(player1, player2):
         player2 -- player first player is being compared to.
 
     Returns -- a HUN number in the range of 0 to 1.  A higher value indicates
-               thtat the players are more 'like' each other.
+               that the players are more 'like' each other.
     """
-    plyr1 = get_qhist(player1)
-    plyr2 = get_qhist(player2)
+    if not session_id:
+        session_id = get_session()
+    plyr1 = get_qhist(player1, session_id)
+    plyr2 = get_qhist(player2, session_id)
     same = 0
     diff = 0
     for category in plyr1:
