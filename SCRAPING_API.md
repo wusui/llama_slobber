@@ -179,6 +179,68 @@ md_info = get_matchday(78, 25, 'B_Pacific')
   
 ***
 
+### get_personal_data(person)
+
+Arguments:
+  * person -- llama id (usuiw, for example)
+
+Returns a dictionary containing personal information for this user.
+Current fields are Gender, Location, and School.
+
+##### USAGE
+
+```python
+from llama_slobber import get_personal_data
+.
+.
+.
+my_data = get_personal_data('usuiw')
+```
+
+***
+
+### get_rundle_members(season, rundle)
+
+Arguments:
+  * season -- season number
+  * rundle -- rundle name ('B_Pacific' for example)
+
+Returns a list of players in this rundle.
+
+##### USAGE
+
+```python
+from llama_slobber import get_rundle_members
+.
+.
+.
+members = get_rundle_members(78, 'B_Pacific')
+```
+
+***
+
+### get_rundle_personal(season, rundle)
+
+Arguments:
+  * season -- season number
+  * rundle -- rundle name ('B_Pacific' for example)
+
+This combines the previous two calls.  What this returns is a dictionary
+indexed by player names.  The saved values are values returned by
+get_personal_data for each individual
+
+##### USAGE
+
+```python
+from llama_slobber import get_rundle_personal
+.
+.
+.
+info = get_rundle_personal(78, 'B_Pacific')
+```
+
+***
+
 # EXAMPLES
 
 The first example here demonstrates the get_season, get_leagues, get_rundles, and get_onedays calls.  The second example

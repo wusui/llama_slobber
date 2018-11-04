@@ -3,7 +3,7 @@
 The following is a description of the methods in llama_slobber used for
 data analysis and data formatting.  If a session_id is passed as an
 optional keyword argument, then that session_id is the same as the
-session_ids documented in SCRAPIND_API.md.
+session_ids documented in SCRAPING_API.md.
 
 ***
 
