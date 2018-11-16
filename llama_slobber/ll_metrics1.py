@@ -16,8 +16,10 @@ def format_float(number, decimal_places):
     """
     divisor = math.pow(10, decimal_places)
     value = number * divisor + .5
-    value = int(value) / divisor
-    return value
+    value = str(int(value) / divisor)
+    frac = value.split('.')[1]
+    trail_len = decimal_places - len(frac)
+    return value + ''.join(['0'] * trail_len)
 
 
 def calc_hun(player1, player2, session_id=None):
@@ -60,4 +62,6 @@ def calc_hun(player1, player2, session_id=None):
 
 
 if __name__ == "__main__":
+    print(format_float(1 / 7, 6))
+    print(format_float(3 / 4, 6))
     print(format_float(calc_hun('usuiw', 'veredj'), 7))

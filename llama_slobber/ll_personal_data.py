@@ -63,7 +63,7 @@ def get_personal_data(person, session=get_session()):
         person -- LL id.
         session request
 
-    Returns: dictionary of user's metadata (Location, Gender, College) 
+    Returns: dictionary of user's metadata (Location, Gender, College)
     """
     page = "%s/profiles.php?%s" % (LLHEADER, person)
     return get_page_data(page, GetPersonalInfo(), session=session)
