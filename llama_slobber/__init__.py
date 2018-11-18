@@ -11,6 +11,8 @@ from llama_slobber.ll_rundle_members import get_rundle_personal
 from llama_slobber.ll_personal_data import get_personal_data
 from llama_slobber.ll_get_rundle_comp import get_rundle_comp
 from llama_slobber.fmt_float import format_float
+from llama_slobber.fmt_html_calc import gen_html_page
+from llama_slobber.fmt_html_calc import gen_html_table
 from llama_slobber.calc_hun import calc_hun
 
 name = "llama_slobber"
