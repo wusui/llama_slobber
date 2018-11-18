@@ -241,6 +241,33 @@ info = get_rundle_personal(78, 'B_Pacific')
 
 ***
 
+### get_rundle_comp(season, rundle, fsize, session_id=get_session(),func_parm=calc_hun)
+
+Arguments:
+  * season -- LL season number
+  * rundle -- rundle name "B_Pacific" for example
+  * fsize -- size of the field to be displayed
+  * func_parm -- name of the routine to be executed for all pairs in this rundle.  Keyword parameter, defaults to calc_hun.
+
+This function returns a dictionary whose keys are an alpabetically sorted
+list of the names of the players in the rundle.  Each value is a list of tuples
+consisting of a opponent and the result of the func_parm call when passed the
+combination of the user name in the key and the user name in the tuple.  This
+list is sorted in descending numeric order based on the second number in the
+tuple.  If no func_parm is specfied, calc_hun is used.
+
+##### USAGE
+
+```python
+from llama_slobber import get_rundle_comp
+.
+.
+.
+info = get_rundle_comp(78, 'B_Pacific', 6)
+```
+
+***
+
 # EXAMPLES
 
 The first example here demonstrates the get_season, get_leagues, get_rundles, and get_onedays calls.  The second example
