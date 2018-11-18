@@ -1,34 +1,8 @@
 # LLAMA SLOBBER METRICS
 
-The following is a description of the methods in llama_slobber used for
-data analysis and data formatting.  If a session_id is passed as an
-optional keyword argument, then that session_id is the same as the
-session_ids documented in SCRAPING_API.md.
-
-***
-
-### format_float(number, decimal_places)
-
-Arguments:
-  * number -- floating point number to be formatted.
-  * decimal_places -- number of decimal places to be displayed
-  
-Returns -- a floating point value limited to the number of decimal places.
-           Values are rounded
-
-This method can be used to format floating point numbers for display.
-
-##### USAGE
-
-```python
-from llama_slobber import format_float
-.
-.
-.
-print(format_float(.497, 2))
-```
-
-This should print out .48
+The following is a description of the methods in llama_slobber used for data
+analysis.  If a session_id is passed as an optional keyword argument, then
+that session_id is the same as the session_ids documented in SCRAPING_API.md.
 
 ***
 

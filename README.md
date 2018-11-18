@@ -44,6 +44,7 @@ This logindata.ini file should be placed in the directory from which the user's 
 
   * [Screen Scraping API](https://github.com/wusui/llama_slobber/blob/master/SCRAPING_API.md)
   * [Metrics API](https://github.com/wusui/llama_slobber/blob/master/METRICS_API.md)
+  * [Formatting API](https://github.com/wusui/llama_slobber/blob/master/FORMAT_API.md)
  
 ## Author
 
