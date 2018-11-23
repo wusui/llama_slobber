@@ -21,16 +21,6 @@ got the same result (both got right or both missed) divided by the total
 number of questions that they answered in common.  This has a maximum
 value of one and the higher the number is, the similar to two players are.
 
-##### USAGE
-
-```python
-from llama_slobber import calc_hun
-.
-.
-.
-hun = calc_hun('usuiw', 'veredj')
-```
-
 ***
 
 ### calc_wonder(season, rundle, session_id=session_id)
@@ -54,12 +44,3 @@ total questions with a win in matchpoints would change WONDER values by 2.
 Since this value only changes by a low integer, the tracking of this value
 is only being done for each season. 
 
-##### USAGE
-
-```python
-from llama_slobber import calc_wonder
-.
-.
-.
-values = calc_wonder(78, 'B_Pacific')
-```

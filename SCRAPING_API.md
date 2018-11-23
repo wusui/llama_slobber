@@ -17,16 +17,6 @@ Returns -- session id
 
 Routine used to obtain a session id.  This session id can be passed as a keyword argument to later calls.
 
-##### USAGE
-
-```python
-from llama_slobber import get_session
-.
-.
-.
-session_id = get_session()
-```
-
 ***
 
 ### get_page_data(url, parser)
@@ -48,16 +38,6 @@ Returns -- the current season number, or the last completed season if between se
 
 This method reads the main Learned League page to extract the current season number.
 
-##### USAGE
-
-```python
-from llama_slobber import get_season
-.
-.
-.
-season_number = get_season()
-```
-
 ***
 
 ### get_leagues(season)
@@ -66,16 +46,6 @@ Arguments:
   * season -- season number (int)
 
 Returns -- list of league names
-
-##### USAGE
-
-```python
-from llama_slobber import get_leagues
-.
-.
-.
-leagues = get_leagues(78)
-```
 
 ***
 
@@ -87,16 +57,6 @@ Arguments:
 
 Returns -- list of rundles in this league
 
-##### USAGE
-
-```python
-from llama_slobber import get_rundles
-.
-.
-.
-rlist = get_rundles(78, 'Pacific')
-```
-
 ***
 
 ### get_onedays()
@@ -106,16 +66,6 @@ Returns -- list of one-day contests.  Each entry in this list is a list that con
   * the abbreviated name of this contest (example: '60sspycraze')
   * the full name of this contest (example: 'The 60s Spy Craze')
   
-##### USAGE
-
-```python
-from llama_slobber import get_onedays
-.
-.
-.
-olist = get_onedays()
-```
-
 ***
 
 ### get_qhist(player)
@@ -135,16 +85,6 @@ The indivual questions are indicated by a dash separated string of numbers whose
   * question number
 
 78-13-5 for example would be the fifth question on day 13 of season 78.
-
-##### USAGE
-
-```python
-from llama_slobber import get_qhist
-.
-.
-.
-my_hist = get_qhist('UsuiW')
-```
 
 ***
 
@@ -167,16 +107,6 @@ The corresponding value of each entry is another dictionary containing the follo
   * 'answers' -- a 6 item list corresponding to this player's answers for the six questions on that day.  Values can be '0' (for incorrect), '1' (for correct), or 'F' (for forfeit).
   * 'ratings' -- a 6 item list of integer values corresponding to how that player was defended for each question.
   
-##### USAGE
-  
-```python
-from llama_slobber import get_matchday
-.
-.
-.
-md_info = get_matchday(78, 25, 'B_Pacific')
-```
-  
 ***
 
 ### get_personal_data(person)
@@ -187,16 +117,6 @@ Arguments:
 Returns a dictionary containing personal information for this user.
 Current fields are Gender, Location, and School.
 
-##### USAGE
-
-```python
-from llama_slobber import get_personal_data
-.
-.
-.
-my_data = get_personal_data('usuiw')
-```
-
 ***
 
 ### get_rundle_members(season, rundle)
@@ -206,16 +126,6 @@ Arguments:
   * rundle -- rundle name ('B_Pacific' for example)
 
 Returns a list of players in this rundle.
-
-##### USAGE
-
-```python
-from llama_slobber import get_rundle_members
-.
-.
-.
-members = get_rundle_members(78, 'B_Pacific')
-```
 
 ***
 
@@ -228,16 +138,6 @@ Arguments:
 This combines the previous two calls.  What this returns is a dictionary
 indexed by player names.  The saved values are values returned by
 get_personal_data for each individual
-
-##### USAGE
-
-```python
-from llama_slobber import get_rundle_personal
-.
-.
-.
-info = get_rundle_personal(78, 'B_Pacific')
-```
 
 ***
 
@@ -256,16 +156,6 @@ combination of the user name in the key and the user name in the tuple.  This
 list is sorted in descending numeric order based on the second number in the
 tuple.  If no func_parm is specfied, calc_hun is used.
 
-##### USAGE
-
-```python
-from llama_slobber import get_rundle_comp
-.
-.
-.
-info = get_rundle_comp(78, 'B_Pacific', 6)
-```
-
 ***
 
 ### get_matchresult(season, day, rundle, session=get_session()):
@@ -280,25 +170,12 @@ two entries.  The 'players' entry is a list of the two players in a match.
 The score entry is a list of strings corresponding to their scores (in
 LL x(y) notation).
 
-```python
-from llama_slobber import get_matchresult
-.
-.
-.
-info = get_matchresult(78, 23, 'B_Pacific')
-```
+***
 
 ### get_matchcount()
 
-Return the number of matches this season (previous seasons have 25  matches)
-
-```python
-from llama_slobber import get_matchcount
-.
-.
-.
-info = get_matchcount()
-```
+Return the number of matches so farthis season
+(previous seasons have 25  matches).
 
 ***
 

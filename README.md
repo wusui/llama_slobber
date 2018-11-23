@@ -40,6 +40,24 @@ password = <your Learned League user password>
 
 This logindata.ini file should be placed in the directory from which the user's python code will be run.
 
+## USAGE
+
+All of the methods documented in the files listed in the *Further Documentaion*
+section of this can be used by importing the method and calling the
+method with the appropriate variables.  For example, the following
+code will caculate hun values for the B_Pacific rundle during season 78,
+and print the hun values for 'usuiw' as an html page
+
+```python
+from llama_slobber import get_rundle_comp
+from llama_sloober import gen_html_table
+.
+.
+.
+foo = get_rundle_comp(78, 'B_Pacific', 6)
+print(gen_html_table('usuiw', foo['usuiw']))
+```
+
 ## Futher Documentation
 
   * [Screen Scraping API](https://github.com/wusui/llama_slobber/blob/master/SCRAPING_API.md)
