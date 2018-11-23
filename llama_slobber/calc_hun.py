@@ -2,9 +2,9 @@
 # Copyright (c) 2018 Warren Usui, MIT License
 # pylint: disable=W0223
 """
-Implement some metrics.
+Implement HUN number calculator
 """
-from llama_slobber.ll_qhist import get_session
+from llama_slobber.ll_local_io import get_session
 from llama_slobber.ll_qhist import get_qhist
 from llama_slobber.fmt_float import format_float
 

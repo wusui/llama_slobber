@@ -268,6 +268,40 @@ info = get_rundle_comp(78, 'B_Pacific', 6)
 
 ***
 
+### get_matchresult(season, day, rundle, session=get_session()):
+
+Arguments:
+  * season -- season number
+  * day -- match day number in range 1 to 25
+  * rundle -- name of rundle (R_Pacific_Div_2, for example)
+
+Returns a list of match results.  Each result consist of a dictionary with
+two entries.  The 'players' entry is a list of the two players in a match.
+The score entry is a list of strings corresponding to their scores (in
+LL x(y) notation).
+
+```python
+from llama_slobber import get_matchresult
+.
+.
+.
+info = get_matchresult(78, 23, 'B_Pacific')
+```
+
+### get_matchcount()
+
+Return the number of matches this season (previous seasons have 25  matches)
+
+```python
+from llama_slobber import get_matchcount
+.
+.
+.
+info = get_matchcount()
+```
+
+***
+
 # EXAMPLES
 
 The first example here demonstrates the get_season, get_leagues, get_rundles, and get_onedays calls.  The second example

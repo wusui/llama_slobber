@@ -22,6 +22,7 @@ STANDINGS = '/standings.php?'
 LLSTANDINGS = LLHEADER + STANDINGS
 ARUNDLE = LLSTANDINGS + '%d&A_%s'
 INPUTDATA = 'logindata.ini'
+TOTAL_MATCHES_PER_SEASON = 25
 
 
 def get_session():

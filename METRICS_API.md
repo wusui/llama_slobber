@@ -30,3 +30,36 @@ from llama_slobber import calc_hun
 .
 hun = calc_hun('usuiw', 'veredj')
 ```
+
+***
+
+### calc_wonder(season, rundle, session_id=session_id)
+
+Arguments:
+  * season -- season number
+  * rundle -- rundle name
+  * session_id -- session id (optional)
+
+Returns -- Sorted list of tuples consisting of players and wonder values.
+
+WONDER ("Warren's Overtly Narcissistic Defensive Efficiency Rating") is a 
+statistic that measures how much defense affected the standings points
+of a player.  It compares match point scores with total questions scores
+for a match.  If player A and player B tie on total questions but player A
+beats player B on matchpoints, then player A's WONDER score goes up by 1 and
+player B's WONDER score goes down by 1.  Similarly, a loss in total questions
+with a tie in matchpoints would also change WONDER values by 1, and a loss in
+total questions with a win in matchpoints would change WONDER values by 2.
+
+Since this value only changes by a low integer, the tracking of this value
+is only being done for each season. 
+
+##### USAGE
+
+```python
+from llama_slobber import calc_wonder
+.
+.
+.
+values = calc_wonder(78, 'B_Pacific')
+```
