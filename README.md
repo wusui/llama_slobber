@@ -43,14 +43,14 @@ This logindata.ini file should be placed in the directory from which the user's 
 ## USAGE
 
 All of the methods documented in the files listed in the *Further Documentaion*
-section of this can be used by importing the method and calling the
+section of this document can be used by importing the method and calling the
 method with the appropriate variables.  For example, the following
 code will caculate hun values for the B_Pacific rundle during season 78,
 and print the hun values for 'usuiw' as an html page
 
 ```python
 from llama_slobber import get_rundle_comp
-from llama_sloober import gen_html_table
+from llama_slobber import gen_html_table
 .
 .
 .
