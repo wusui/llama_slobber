@@ -172,10 +172,31 @@ LL x(y) notation).
 
 ***
 
-### get_matchcount()
+### get_user_data(player,  session=get_session())
 
-Return the number of matches so farthis season
-(previous seasons have 25  matches).
+Arguments:
+   player -- player name
+
+Returns career information for a player.  The results are returned
+as a list of two dictionaries.  Each dictionary is indexed by a season
+number.
+
+The first dict contains lists of matches.  Each match consists of two lists
+each two numbers long.  The first list is the matchpoint score and correct
+answer count for the plaayer.  The second list is the matchpoin score and
+correct answer count for the opponent.
+
+The second dict contains a list of won-loss reccords for the player.  Each
+match is a three item list of numbers representing matches won, lost, and
+tied up to that point.
+
+***
+
+### get_matchresult(season, day, rundle, session=get_session()):
+
+Arguments:
+  * season -- season number
+  * day -- match day number in range 1 to 25
 
 ***
 

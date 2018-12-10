@@ -44,3 +44,17 @@ total questions with a win in matchpoints would change WONDER values by 2.
 Since this value only changes by a low integer, the tracking of this value
 is only being done for each season. 
 
+***
+
+### find_wlt_patterns(player)
+
+Arguments:
+  * player -- player name
+
+Returns -- pattern information
+
+The return value is a list of seasons with a repeating cycles of scores.
+Each entry in the list consists of a season number, and the length of the
+cycle where the repeating scores appear.
+
+
