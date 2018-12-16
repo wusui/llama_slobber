@@ -8,6 +8,7 @@ from html.parser import HTMLParser
 from llama_slobber.ll_local_io import get_session
 from llama_slobber.ll_local_io import get_page_data
 from llama_slobber.ll_local_io import ONEDAYS
+from llama_slobber.handle_conn_err import handle_conn_err
 
 
 class GetOnedayInfo(HTMLParser):
@@ -54,6 +55,7 @@ class GetOnedayInfo(HTMLParser):
             self.incell = False
 
 
+@handle_conn_err
 def get_onedays(session=get_session()):
     """
     Get oneday records from ONEDAYS page

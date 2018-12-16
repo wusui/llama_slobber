@@ -10,7 +10,8 @@ from json import dumps
 from llama_slobber.ll_personal_data import get_personal_data
 from llama_slobber.ll_local_io import get_session
 from llama_slobber.ll_local_io import get_page_data
-from llama_slobber.ll_local_io import LLHEADER
+from llama_slobber.ll_local_io import LLSTANDINGS
+from llama_slobber.handle_conn_err import handle_conn_err
 
 
 class GetRundleMembers(HTMLParser):
@@ -44,6 +45,7 @@ class GetRundleMembers(HTMLParser):
         self.lname = ''
 
 
+@handle_conn_err
 def get_rundle_members(season, rundle, session=get_session()):
     """
     Get players in a rundle
@@ -55,7 +57,7 @@ def get_rundle_members(season, rundle, session=get_session()):
 
     Returns list of user names of players in the rundle
     """
-    page = "%s/standings.php?%d&%s" % (LLHEADER, season, rundle)
+    page = "%s%d&%s" % (LLSTANDINGS, season, rundle)
     return get_page_data(page, GetRundleMembers(), session=session)
 
 

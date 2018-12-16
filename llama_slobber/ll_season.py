@@ -10,6 +10,7 @@ from llama_slobber.ll_local_io import get_session
 from llama_slobber.ll_local_io import get_page_data
 from llama_slobber.ll_local_io import LLHEADER
 from llama_slobber.ll_local_io import STANDINGS
+from llama_slobber.handle_conn_err import handle_conn_err
 
 
 class GetSeasonNumber(HTMLParser):
@@ -31,6 +32,7 @@ class GetSeasonNumber(HTMLParser):
                         self.result = attrs[0][1].split('?')[-1]
 
 
+@handle_conn_err
 def get_season(session=get_session()):
     """
     Find the season number

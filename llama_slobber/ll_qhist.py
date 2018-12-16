@@ -9,6 +9,7 @@ from html.parser import HTMLParser
 from llama_slobber.ll_local_io import get_session
 from llama_slobber.ll_local_io import get_page_data
 from llama_slobber.ll_local_io import QHIST
+from llama_slobber.handle_conn_err import handle_conn_err
 
 
 class GetQhist(HTMLParser):
@@ -56,6 +57,7 @@ class GetQhist(HTMLParser):
             self.getkey = False
 
 
+@handle_conn_err
 def get_qhist(player, session=get_session()):
     """
     Extract player's question history.

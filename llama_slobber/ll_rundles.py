@@ -10,6 +10,7 @@ from llama_slobber.ll_local_io import get_session
 from llama_slobber.ll_local_io import get_page_data
 from llama_slobber.ll_local_io import STANDINGS
 from llama_slobber.ll_local_io import LLSTANDINGS
+from llama_slobber.handle_conn_err import handle_conn_err
 
 
 class GetRundles(HTMLParser):
@@ -35,6 +36,7 @@ class GetRundles(HTMLParser):
                             self.result.append(parts[-1])
 
 
+@handle_conn_err
 def get_rundles(season, league, session=get_session()):
     """
     Get a list of rundles for the season and league specified.

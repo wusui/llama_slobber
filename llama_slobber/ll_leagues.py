@@ -10,6 +10,7 @@ from llama_slobber.ll_local_io import get_session
 from llama_slobber.ll_local_io import get_page_data
 from llama_slobber.ll_local_io import STANDINGS
 from llama_slobber.ll_local_io import LLSTANDINGS
+from llama_slobber.handle_conn_err import handle_conn_err
 
 
 class GetLeagueNames(HTMLParser):
@@ -41,6 +42,7 @@ class GetLeagueNames(HTMLParser):
             self.skipsofar = False
 
 
+@handle_conn_err
 def get_leagues(season, session=get_session()):
     """
     Get a list of leagues for the season specified.

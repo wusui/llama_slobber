@@ -1,3 +1,4 @@
+from llama_slobber.handle_conn_err import handle_conn_err
 from llama_slobber.ll_local_io import get_session
 from llama_slobber.ll_local_io import get_page_data
 from llama_slobber.ll_season import get_season
@@ -19,5 +20,6 @@ from llama_slobber.fmt_html_calc import gen_html_table
 from llama_slobber.calc_hun import calc_hun
 from llama_slobber.calc_wonder import calc_wonder
 from llama_slobber.find_wlt_patterns import find_wlt_patterns
+from llama_slobber.act_on_all_rundles import act_on_all_rundles
 
 name = "llama_slobber"

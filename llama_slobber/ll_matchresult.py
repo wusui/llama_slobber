@@ -10,6 +10,7 @@ from html.parser import HTMLParser
 from llama_slobber.ll_local_io import get_session
 from llama_slobber.ll_local_io import get_page_data
 from llama_slobber.ll_local_io import MATCH_DATA
+from llama_slobber.handle_conn_err import handle_conn_err
 
 
 class GetMatchResult(HTMLParser):
@@ -54,6 +55,7 @@ class GetMatchResult(HTMLParser):
             self.scan = False
 
 
+@handle_conn_err
 def get_matchresult(season, day, rundle, session=get_session()):
     """
     Extract match day results

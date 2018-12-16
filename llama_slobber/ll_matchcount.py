@@ -11,6 +11,7 @@ from llama_slobber.ll_local_io import get_session
 from llama_slobber.ll_local_io import get_page_data
 from llama_slobber.ll_local_io import ARUNDLE
 from llama_slobber.ll_season import get_season
+from llama_slobber.handle_conn_err import handle_conn_err
 
 
 class GetCurrentlyFinishedCount(HTMLParser):
@@ -40,6 +41,7 @@ class GetCurrentlyFinishedCount(HTMLParser):
             self.right_table = False
 
 
+@handle_conn_err
 def get_matchcount(session=get_session()):
     """
     Find matches in current season

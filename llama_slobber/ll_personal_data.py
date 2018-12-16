@@ -9,6 +9,7 @@ from html.parser import HTMLParser
 from llama_slobber.ll_local_io import get_session
 from llama_slobber.ll_local_io import get_page_data
 from llama_slobber.ll_local_io import LLHEADER
+from llama_slobber.handle_conn_err import handle_conn_err
 
 
 def find_info(person, data, field):
@@ -55,6 +56,7 @@ class GetPersonalInfo(HTMLParser):
             self.parsetext = False
 
 
+@handle_conn_err
 def get_personal_data(person, session=get_session()):
     """
     Get information on a person

@@ -10,6 +10,7 @@ from html.parser import HTMLParser
 from llama_slobber.ll_local_io import get_session
 from llama_slobber.ll_local_io import get_page_data
 from llama_slobber.ll_local_io import USER_DATA
+from llama_slobber.handle_conn_err import handle_conn_err
 
 
 class GetUserData(HTMLParser):
@@ -48,6 +49,7 @@ class GetUserData(HTMLParser):
                     self.result[1][self.season].append(wlrecs)
 
 
+@handle_conn_err
 def get_user_data(player, session=get_session()):
     """
     Return information about a user:

@@ -158,7 +158,7 @@ tuple.  If no func_parm is specfied, calc_hun is used.
 
 ***
 
-### get_matchresult(season, day, rundle, session=get_session()):
+### get_matchresult(season, day, rundle, session=get_session())
 
 Arguments:
   * season -- season number
@@ -186,17 +186,62 @@ each two numbers long.  The first list is the matchpoint score and correct
 answer count for the plaayer.  The second list is the matchpoin score and
 correct answer count for the opponent.
 
-The second dict contains a list of won-loss reccords for the player.  Each
+The second dict contains a list of won-loss records for the player.  Each
 match is a three item list of numbers representing matches won, lost, and
 tied up to that point.
 
 ***
 
-### get_matchresult(season, day, rundle, session=get_session()):
+### get_matchresult(season, day, rundle, session=get_session())
 
 Arguments:
   * season -- season number
   * day -- match day number in range 1 to 25
+  * rundle -- rundle name (B_Pacific, for example)
+
+Return a list of macthes.  Each match is represented by a dictionary entry
+whose keys are 'names' and 'scores'.  The values of those entries are two
+item lists of player names, and their correspoding score (stored as characters)
+
+***
+
+### handle_conn_err(func)
+
+Arguments:
+  * func -- function being wrapped.
+
+handle_conn_err is used as decorator by other scraping functions to
+avoid having spurious requests.ConnectionErrors exceptions terminate
+lengthy scraping session.
+
+***
+
+### act_on_all_rundles(season, action, payload):
+
+Arguments:
+  * season -- season number
+  * action -- function that will operate on all rundles
+  * payload -- either parameters passed to action, or an object into which
+               results are saved.
+
+All rundles names are found for the season specified (A_Coastal, B_Pacific,
+R_Laguna_Div_2 are examples).  For each of these rundles, the function
+specified by action is called.  The season, rundle, and payload are passed.
+
+Depending on the behavior of the action function, payload is either a
+set of parameters passed to the action function, or a mutable objecct
+that will be modified as data is inserted by the action function.
+
+***
+
+### append_action(_, rundle, payload)
+
+Arguments:
+  * rundle -- rundle name
+  * payload -- list into which extracted rundle names will be saved
+
+This routine is passed to act_on_all_rundles to generate a list of
+rundle names
 
 ***
 
