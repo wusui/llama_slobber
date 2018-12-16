@@ -12,14 +12,31 @@ Learned League players.
 
 ***
 
+### save_match_hist.py
+
+Using personal/people.json, get the results of all matches.  Save in
+match_data.  Each match_data entry contains 100 individual match histories
+for 100 players
+
+***
+
 ## Directories
 
-### personal:
+### personal
 
 Files in this directory include:
-  * <Rundle>.json
-  * everybody.json
-  * locations.csv
-  * schools.csv
+  * <Rundle>.json -- personal information by rundle
+  * everybody.json -- all personal information
+  * locations.csv -- csv file of people and locations
+  * schools.csv -- csv file of people and schools
+  * people.json -- alphabetically sorted list of people
+
+***
+
+### match_data
+
+Files in this directory are of the form X__Y.json where X is the name of the
+first person in the file, and Y is the name of the last person in the file.
+The names are in alphabetical order.  Each of these files is 100 entries long.
 
 ***

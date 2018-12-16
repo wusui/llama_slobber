@@ -13,6 +13,7 @@ from llama_slobber import act_on_all_rundles
 from llama_slobber import get_rundle_personal
 from llama_slobber import out_csv_file
 
+
 def personal_by_rundle(season, rundle, payload):
     """
     Create json file of personal information for this rundle.
@@ -72,6 +73,14 @@ def save_personal_data(out_dir):
     if 'schools.csv' not in files_that_exist:
         out_file = '%s%s%s' % (out_dir, os.sep, 'schools.csv')
         out_csv_file(out_file, everybody, 'College')
+    if 'people.json' not in files_that_exist:
+        with open(everybody, 'r') as infile:
+            instring = infile.read()
+        indata = loads(instring)
+        inlist = sorted(indata.keys())
+        outlist = dumps(inlist)
+        with open('personal%speople.json' % os.sep, "w") as ofile:
+            ofile.write(outlist)
 
 
 if __name__ == "__main__":
