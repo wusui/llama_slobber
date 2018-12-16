@@ -42,3 +42,16 @@ Generates the text for an html file based on the information in info.  The
 html file generated will consist of a set of tables where each table consists
 of the data for a person in the rundle.
 
+***
+
+### out_csv_file(out_csv, in_json, field)
+
+Arguments:
+  * out_csv -- csv file to be written
+  * in_json -- json file containing the data to be written
+  * field -- field in in_json
+
+Output a csv file whose entries consist of the keys and the corresponding 
+passed in field for the json file passed in.
+
+***
