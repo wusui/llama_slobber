@@ -20,6 +20,15 @@ for 100 players
 
 ***
 
+### find_wlt_best.py
+
+Scan through the files in match_data.  Look for patterns of won-loss-tie
+numbers that repeat.  Save the ones with the smallest cycle and return a
+dictionary indexed by player, where each entry is a season number and the
+cycle length.  Only the shortest ones are returned.
+
+***
+
 ## Directories
 
 ### personal
