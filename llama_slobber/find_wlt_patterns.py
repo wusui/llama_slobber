@@ -7,12 +7,15 @@ Find patterns in the game records for a player
 from llama_slobber.ll_user_record import get_user_data
 
 
-def find_wlt_patterns(player):
+def find_wlt_patterns(player, pinfo):
     """
     Look for repeating patterns in the record of a player.
+
+    Input:
+        player -- player name
+        pinfo -- data (from get_user_data call).
     """
     result = []
-    pinfo = get_user_data(player)[1]
     for season in pinfo:
         if len(pinfo[season]) != 25:
             continue
@@ -35,5 +38,13 @@ def find_wlt_patterns(player):
     return result
 
 
+def get_wlt_patterns(player):
+    """
+    Call get_user_data to get w-l-t record prior to calling find_wlt_patterns.
+    """
+    pinfo = get_user_data(player)[1]
+    return find_wlt_patterns(player, pinfo)
+
+
 if __name__ == '__main__':
-    print(find_wlt_patterns('usuiw'))
+    print(get_wlt_patterns('usuiw'))

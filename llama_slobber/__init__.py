@@ -20,6 +20,8 @@ from llama_slobber.fmt_html_calc import gen_html_table
 from llama_slobber.calc_hun import calc_hun
 from llama_slobber.calc_wonder import calc_wonder
 from llama_slobber.find_wlt_patterns import find_wlt_patterns
+from llama_slobber.find_wlt_patterns import get_wlt_patterns
+from llama_slobber.find_stored_stat import find_stored_stat
 from llama_slobber.act_on_all_rundles import act_on_all_rundles
 from llama_slobber.out_csv_file import out_csv_file
 

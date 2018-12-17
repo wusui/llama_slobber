@@ -44,7 +44,7 @@ def save_match_hist():
         out_data[player] = get_user_data(player)
         if count == 0:
             continue
-        if count % 99 == 0:
+        if count % 100 == 99:
             dowrite(fname, player, out_data)
     dowrite(fname, player, out_data)
 

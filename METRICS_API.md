@@ -46,7 +46,7 @@ is only being done for each season.
 
 ***
 
-### find_wlt_patterns(player)
+### get_wlt_patterns(player)
 
 Arguments:
   * player -- player name
@@ -57,4 +57,30 @@ The return value is a list of seasons with a repeating cycles of scores.
 Each entry in the list consists of a season number, and the length of the
 cycle where the repeating scores appear.
 
+***
 
+### find_wlt_patterns(player, pinfo)
+
+Arguments:
+  * player -- player name
+  * pinfo -- player record information
+
+Returns -- pattern information
+
+The return value is a list of seasons with a repeating cycles of scores.
+Each entry in the list consists of a season number, and the length of the
+cycle where the repeating scores appear.
+
+***
+
+### find_stored_stat(directory, this_func, oresult)
+
+Arguments:
+  * directory -- location of json files to be scanned.
+  * this_func -- function to be run against the entries found
+  * oresult -- dictionary saving the results of this_func calls
+
+Run this_func using as input all the json files in the directory specified
+by the directory parameter. Results are accumulated in oresult.
+
+***
