@@ -35,6 +35,29 @@ def comp_diff(scores):
     return indx
 
 
+def mscore(score_u, score_t):
+    """
+    Return 2 for win, 1 for tie, 0 for loss, -1 for Forfeit
+    """
+    if score_u < 0 or score_t < 0:
+        return -1
+    if score_u < score_t:
+        return 0
+    if score_u > score_t:
+        return 2
+    return 1
+
+
+def score_wonder(scores):
+    """
+    Find wonder value for a score in [[a, b], [c, d]] format.
+    """
+    reg = mscore(scores[0][1], scores[1][1])
+    if reg < 0:
+        return 0
+    return mscore(scores[0][0], scores[1][0]) - reg
+
+
 def match_anal(match_res):
     """
     Reorganize match_res values into a single list with the score being
@@ -97,3 +120,6 @@ def calc_wonder(season, rundle, session_id=None):
 
 if __name__ == "__main__":
     print(calc_wonder(78, 'B_Pacific'))
+    print(score_wonder([[4, 4], [7, 5]]))
+    print(score_wonder([[0, -1], [7, 3]]))
+    print(score_wonder([[7, 3], [4, 4]]))

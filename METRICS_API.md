@@ -46,6 +46,15 @@ is only being done for each season.
 
 ***
 
+### score_wonder(match_info)
+
+Arguments:
+    match_info -- score in [[a, b], [c, d]] format
+
+Return wonder score for the individual match.
+
+***
+
 ### get_wlt_patterns(player)
 
 Arguments:
