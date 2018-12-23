@@ -50,7 +50,7 @@ def pat_fnd(name, value):
     Arguments:
         name -- player name
         value -- ('season number', cycle-length')
- 
+
     Look in match_data directory for this player and find the cycle that was
     repeated.  Return as 'W-L-T' value.
     """
@@ -93,12 +93,12 @@ def main_routine():
     Generate an html page to display Llama cycles
     """
     odata = gen_html_page({'x': lformat(action())},
-                           'Llama Cycles', 'Shortest Llama Cycles',
-                           centered=True,
-                           tabhdrs=['Name', 'Season', 'Cycle Size',
-                                    'Pattern'])
+                          'Llama Cycles', 'Shortest Llama Cycles',
+                          centered=True,
+                          tabhdrs=['Name', 'Season', 'Cycle Size',
+                                   'Pattern'])
     ofile = 'generated_html' + os.sep + 'cycle_data.html'
-    ifile = 'html_texts' +  os.sep + 'cycle_data.txt'
+    ifile = 'html_texts' + os.sep + 'cycle_data.txt'
     odata = inject_text(odata, ifile)
     with open(ofile, 'w') as fdesc:
         fdesc.write(odata)
