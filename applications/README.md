@@ -25,7 +25,8 @@ for 100 players
 Scan through the files in match_data.  Look for patterns of won-loss-tie
 numbers that repeat.  Save the ones with the smallest cycle and return a
 dictionary indexed by player, where each entry is a season number and the
-cycle length.  Only the shortest ones are returned.
+cycle length.  Only the shortest ones are returned.  Results are stored in
+generated_html/cycle_data.html
 
 ***
 
