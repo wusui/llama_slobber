@@ -24,5 +24,5 @@ def find_stored_stat(directory, this_func, oresult):
             odata = infile.read()
         odict = loads(odata)
         for ikey in odict:
-            oresult[ikey] = this_func(ikey, odict[ikey])
+            oresult[ikey] = this_func(odict[ikey])
     return oresult

@@ -14,15 +14,28 @@ from llama_slobber import gen_html_page
 from llama_slobber import inject_text
 
 
-def find_wlt_func(_, odict):
+def find_wlt_func(odict):
     """
-    Fucntion passed to stored stat to find wlt patterns
+    Fucntion passed to find_stored_stat to find wlt patterns
 
     Input:
-        odict -- dictionary where the data will be stored
+        odict -- dictionary extracted from match_data json
+
+    Returns: list of (season, cycle-size) tuples 
     """
     result = find_wlt_patterns(odict[1])
     return result
+
+
+def fmt_cycles(cycles):
+    """
+    Format cycle information into a string.
+    """
+    out_data = []
+    for entry in cycles:
+        datav = entry[0] + '-' + str(entry[1])
+        out_data.append(datav)
+    return ','.join(out_data)
 
 
 def action():
@@ -32,7 +45,9 @@ def action():
     best = 25
     answers = {}
     result = find_stored_stat('match_data', find_wlt_func, {})
+    all_string = ''
     for person in result:
+        all_string += person + ',' + fmt_cycles(result[person]) + '\n'
         for cycle in result[person]:
             if cycle[1] < best:
                 best = cycle[1]
@@ -42,6 +57,9 @@ def action():
                     answers[person].append(cycle)
                 else:
                     answers[person] = [cycle]
+    ocsv_file = 'generated_files' + os.sep + 'wlt_cycles.csv'
+    with open(ocsv_file, 'w') as ofile:
+        ofile.write(all_string)
     return answers
 
 
@@ -97,7 +115,7 @@ def main_routine():
                           centered=True,
                           tabhdrs=['Name', 'Season', 'Cycle Size',
                                    'Pattern'])
-    ofile = 'generated_html' + os.sep + 'cycle_data.html'
+    ofile = 'generated_files' + os.sep + 'cycle_data.html'
     ifile = 'html_texts' + os.sep + 'cycle_data.txt'
     odata = inject_text(odata, ifile)
     with open(ofile, 'w') as fdesc:

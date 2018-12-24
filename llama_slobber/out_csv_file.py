@@ -15,13 +15,20 @@ def out_csv_file(out_csv, in_json, field):
         in_json -- file with data to be extacted
         field -- field to be extracted
     """
-    with open(out_csv, "w", encoding='utf-8') as ofile:
-        with open(in_json, "r", encoding='utf-8') as ifile:
-            rdata = loads(ifile.read())
-            for ikey in rdata:
-                if rdata[ikey]:
+    olist = []
+    with open(in_json, "r", encoding='utf-8') as ifile:
+        rdata = loads(ifile.read())
+        for ikey in rdata:
+            if rdata[ikey]:
+                if not field:
+                    ostring = ikey + ',' + ','.join(rdata[ikey])
+                else:
                     if field in rdata[ikey]:
-                        ostring = ikey + ', ' + rdata[ikey][field]
+                        ostring = ikey + ',' + rdata[ikey][field]
                     else:
                         ostring = ikey
-                    ofile.write(ostring.replace(", ", ",")+'\n')
+                olist.append(ostring)
+    olist = sorted(olist)
+    odata = '\n'.join(olist)
+    with open(out_csv, "w", encoding='utf-8') as ofile:
+        ofile.write(odata + '\n')

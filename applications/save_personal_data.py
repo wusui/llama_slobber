@@ -24,6 +24,7 @@ def personal_by_rundle(season, rundle, payload):
         payload -- dictionary where 'output_directory' entry contains the
                    name of the directory where data will be stored
     """
+    print(rundle, flush=True)
     outstr = dumps(get_rundle_personal(season, rundle), indent=4)
     outdir = payload['output_directory']
     fname = "%s%s%s.json" % (outdir, os.sep, rundle)
@@ -40,11 +41,12 @@ def personal_dict(season, rundle, payload):
         rundle -- rundle name
         payload -- dictionary where results will be stored
     """
+    print(rundle, flush=True)
     data = get_rundle_personal(season, rundle)
     payload.update(data)
 
 
-def save_personal_data(out_dir):
+def save_personal_data(json_dir, out_dir):
     """
     Save personal data
 
@@ -56,10 +58,10 @@ def save_personal_data(out_dir):
     """
     sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
     season = get_season()
-    files_that_exist = os.listdir(out_dir)
+    files_that_exist = os.listdir(json_dir)
     if len(files_that_exist) < 5:
         act_on_all_rundles(season, personal_by_rundle,
-                           {'output_directory': out_dir})
+                           {'output_directory': json_dir})
     everybody = '%s%severybody.json' % (out_dir, os.sep)
     if 'everybody.json' not in files_that_exist:
         payload = {}
@@ -79,9 +81,9 @@ def save_personal_data(out_dir):
         indata = loads(instring)
         inlist = sorted(indata.keys())
         outlist = dumps(inlist)
-        with open('personal%speople.json' % os.sep, "w") as ofile:
+        with open('%s%speople.json' % (out_dir, os.sep), "w") as ofile:
             ofile.write(outlist)
 
 
 if __name__ == "__main__":
-    save_personal_data("personal")
+    save_personal_data("personal", "generated_files")

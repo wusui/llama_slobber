@@ -78,17 +78,24 @@ def gen_html_table(def_head, data, attribute='', tabhdrs=False):
                     headers are specified.
         data -- tuples of information used to make rows in the table
         attribute -- if set, attribute to add to table.
-        tabhdrs -- if set, table of headers to be used.
+        tabhdrs -- if set, table of headers to be used.  If this entry
+                   is a list of a list of headers, then both def_head
+                   and this set of headers are used.
 
     Returns a snippet of html code representing this table
     """
+    both = False
+    if tabhdrs:
+        if len(tabhdrs) == 1:
+            both = True
+            tabhdrs = tabhdrs[0]
     hsize = len(data[0])
-    if not tabhdrs:
+    disp = ''
+    if both or not tabhdrs:
         disp = html_wrap(def_head, 'th')
         disp = add_attrib('colspan="%d"' % hsize, disp)
         disp = html_wrap(disp, 'tr\n')
-    else:
-        disp = ''
+    if tabhdrs:
         for field in tabhdrs:
             disp += html_wrap(field, 'th')
         disp = html_wrap(disp, 'tr\n')
@@ -136,7 +143,7 @@ def gen_html_page(info, title, header, centered=False, tabhdrs=False):
                                    attribute="class='center'",
                                    tabhdrs=tabhdrs)
         else:
-            text += gen_html_table(peep, info[peep])
+            text += gen_html_table(peep, info[peep], tabhdrs=tabhdrs)
     text = html_wrap(text, 'body')
     otext += text
     return "<!DOCTYPE html>\n" + html_wrap(otext, 'html')
