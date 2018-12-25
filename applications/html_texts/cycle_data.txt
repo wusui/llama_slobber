@@ -1,0 +1,8 @@
+Llamas have commented that over the course of a season many won-loss-tie
+patterns repeat.  Someone wondered if any Llama had a repeating cycle of
+results for the entire season.   Based on this interest, SLOBR now tracks
+the shortest cycles for an entire season.  For example, a player who has
+a record of 1-1-1 after match 3, 2-2-2 after match 6, all the way up to
+8-8-8 at match 24 would have a cycle size of 3.  So far, this has not
+happened.  What is displayed in the table below are the shortest cycles
+found so far.

@@ -1,0 +1,2 @@
+The following llamas have scored all possible combinations of scores within
+their first 100 matches.
