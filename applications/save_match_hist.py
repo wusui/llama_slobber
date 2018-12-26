@@ -6,9 +6,9 @@ Save match history for all players
 from json import dump
 from json import loads
 from llama_slobber import get_user_data
+from llama_slobber import get_qhist
 
-
-def dowrite(name1, name2, idata):
+def dowrite(name1, name2, idata, outdir):
     """
     Write out a file containing a set of match data.
 
@@ -16,22 +16,24 @@ def dowrite(name1, name2, idata):
         name1 -- first name in the set of data
         name2 -- last name in the set of data
         idata -- dictionary of match data
+        outdir -- directory where data will be stored
     """
-    fname = "match_data/%s__%s.json" % (name1, name2)
+    fname = "%s/%s__%s.json" % (outdir, name1, name2)
+    print(fname, flush=True)
     with open(fname, 'w') as fout:
         dump(idata, fout)
 
 
-def save_match_hist():
+def save_user_hist(user_func, outdir):
     """
-    Read personal/people.json to get players.
+    Read generated_files/people.json to get players.
 
     For each player, call get_user_data
 
     Store that data in match_data files.  Each file contains 100 entries
     and are named and sorted in alphabetical order
     """
-    with open('personal/people.json', 'r') as infile:
+    with open('generated_files/people.json', 'r') as infile:
         intext = infile.read()
     indata = loads(intext)
     fname = ''
@@ -41,13 +43,13 @@ def save_match_hist():
         if count % 100 == 0:
             out_data = {}
             fname = player
-        out_data[player] = get_user_data(player)
+        out_data[player] = user_func(player)
         if count == 0:
             continue
         if count % 100 == 99:
-            dowrite(fname, player, out_data)
-    dowrite(fname, player, out_data)
+            dowrite(fname, player, out_data, outdir)
+    dowrite(fname, player, out_data, outdir)
 
 
 if __name__ == "__main__":
-    save_match_hist()
+    save_user_hist(get_qhist, 'question_data')
