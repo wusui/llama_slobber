@@ -5,8 +5,7 @@ Save match history for all players
 """
 from json import dump
 from json import loads
-from llama_slobber import get_user_data
-from llama_slobber import get_qhist
+
 
 def dowrite(name1, name2, idata, outdir):
     """
@@ -49,7 +48,3 @@ def save_user_hist(user_func, outdir):
         if count % 100 == 99:
             dowrite(fname, player, out_data, outdir)
     dowrite(fname, player, out_data, outdir)
-
-
-if __name__ == "__main__":
-    save_user_hist(get_qhist, 'question_data')

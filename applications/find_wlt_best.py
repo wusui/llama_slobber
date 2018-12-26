@@ -21,7 +21,7 @@ def find_wlt_func(odict):
     Input:
         odict -- dictionary extracted from match_data json
 
-    Returns: list of (season, cycle-size) tuples 
+    Returns: list of (season, cycle-size) tuples
     """
     result = find_wlt_patterns(odict[1])
     return result

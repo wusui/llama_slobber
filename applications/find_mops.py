@@ -68,7 +68,8 @@ def xlate_num2score(score_indices):
     retval = []
     for ival in score_indices:
         retval.append(TEXTVALUES[ival])
-    return retval 
+    return retval
+
 
 def action():
     """
@@ -79,8 +80,8 @@ def action():
     for person in result:
         size = len(result[person][0])
         new_records.append([person, result[person][1], size,
-                           result[person][0]])
-    for column in range(0,3):
+                            result[person][0]])
+    for column in range(0, 3):
         new_records = sorted(new_records, key=itemgetter(column))
     out_list = []
     for aline in new_records:
@@ -97,10 +98,10 @@ def action():
     odata = inject_text(odata, ifile)
     with open(ofile, 'w') as fdesc:
         fdesc.write(odata)
-    cfile = 'generated_files' + os.sep + 'mops.csv'
-    with open(cfile, 'w') as cdesc:
+    ofile = 'generated_files' + os.sep + 'mops.csv'
+    with open(ofile, 'w') as cdesc:
         for record in new_records:
-            csvrec = [str(i) for i in record[0:3]] 
+            csvrec = [str(i) for i in record[0:3]]
             if record[2] > 0:
                 csvrec.extend(xlate_num2score(record[3]))
             cdesc.write(','.join(csvrec) + '\n')
