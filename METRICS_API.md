@@ -23,6 +23,19 @@ value of one and the higher the number is, the similar to two players are.
 
 ***
 
+### comp_hun(player1, player2)
+
+Arguments:
+  * player1 -- first player question history dictionary
+  * player2 -- second player question history dictionary
+
+Returns -- floating point number between 0 and 1 (Hun calculated)
+
+Called by calc_hun, this method can be called directly if the question
+history information has already been obtained.
+
+***
+
 ### calc_wonder(season, rundle, session_id=session_id)
 
 Arguments:

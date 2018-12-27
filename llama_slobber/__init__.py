@@ -18,6 +18,7 @@ from llama_slobber.fmt_float import format_float
 from llama_slobber.fmt_html_calc import gen_html_page
 from llama_slobber.fmt_html_calc import gen_html_table
 from llama_slobber.calc_hun import calc_hun
+from llama_slobber.calc_hun import comp_hun
 from llama_slobber.calc_wonder import calc_wonder
 from llama_slobber.calc_wonder import score_wonder
 from llama_slobber.find_wlt_patterns import find_wlt_patterns
