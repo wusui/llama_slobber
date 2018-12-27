@@ -5,6 +5,7 @@ Find hun values
 """
 import json
 import os
+import sys
 from operator import itemgetter
 from llama_slobber import comp_hun
 from llama_slobber import lookup_user
@@ -72,4 +73,7 @@ def hun_compute(username):
 
 
 if __name__ == "__main__":
-    hun_compute('usuiw')
+    if len(sys.argv) < 2:
+        hun_compute('usuiw')
+    else:
+        hun_compute(sys.argv[1])
