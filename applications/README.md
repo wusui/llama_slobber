@@ -1,7 +1,9 @@
 # LLAMA SLOBBER APPLICATIONS
 
 The applications in this directory are used to generate the json file and
-csv file information in the subdirectories here.
+csv file information in the subdirectories here.  Also, this directory
+contains the files needed to create the llama_slobber web-site.
+
 
 ## Applications
 
@@ -112,6 +114,9 @@ Files in this subdirectory are inserted into generated html.
 * cycle_data.txt -- inserted into generated_files/cycle_data.html
 * mops.txt -- inserted into generated_files/mops.html
 
+### web_pages
+
+Web pages for the llama_slobber web site.
 
 ### generated_files
 

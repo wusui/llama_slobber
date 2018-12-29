@@ -2,8 +2,10 @@
 
 Llama_slobber is a package of python3 tools useful for Learned League data analysis.
 
-Right now, it consists of screen scraping routines which can be used to extract data from Learned League web pages, a HUN number calculator, and some minor
-formatting routines.
+It consists of screen scraping routines which can be used to extract data from
+Learned League web pages, calculation routines for various Llama Slobber
+statistics, and some formatting routines to help generate web pages and
+csv files.
 
 ## Name Origin
 
@@ -20,12 +22,7 @@ package to aid others in doing analysis of Learned League data.
 ## Installation
 
 Llama_slobber has been packaged on the [Python Package Index website](https://pypi.org) and can be downloaded using the following
-command: `python -m pip install llama_slobber`.  It is frequently updated, so in order to get the most recent version run the following:
-
-```
-python -m pip uninstall llama_slobber
-python -m pip install llama_slobber
-```
+command: `python -m pip install llama_slobber`.
 
 ## logindata.ini file
 
@@ -57,6 +54,11 @@ from llama_slobber import gen_html_table
 foo = get_rundle_comp(78, 'B_Pacific', 6)
 print(gen_html_table('usuiw', foo['usuiw']))
 ```
+
+## Other files in this directory
+
+Most of the other files in this directory are in the application subdirectory,
+which contains files that are used to produce the Llama Slobber website.
 
 ## Futher Documentation
 

@@ -37,7 +37,6 @@ def get_rundle_comp(season, rundle, fsize, session_id=get_session(),
         for opp in folks[indx+1:]:
             hun_val = format_float(func_parm(plyr, opp, session_id=session_id),
                                    fsize)
-            print(plyr, opp, hun_val)
             result[plyr].append((opp, hun_val))
             result[opp].append((plyr, hun_val))
     oresult = {}

@@ -65,8 +65,9 @@ def get_qhist(player, session=get_session()):
     Returns a dict indexed by categories.  Each dict entry consists
     of a 'correct' list and a 'wrong' list of questions asked.
     """
-    main_data = QHIST % player.lower()
-    return get_page_data(main_data, GetQhist(player), session=session)
+    pname = player.lower()
+    main_data = QHIST % pname
+    return get_page_data(main_data, GetQhist(pname), session=session)
 
 
 if __name__ == "__main__":

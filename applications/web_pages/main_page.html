@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html><title>Llama Slobber</title>
+<head><style>h1 { text-align: center } p { text-align: center } h3 {text-align: center }
+              table { border: 1px solid black; margin: 12px; }
+              pre { margin: 20px; background-color: #ddffdd; }
+              td { border: 1px solid black; text-align: center }
+              th { border: 1px solid black; text-align: center }table.center { margin-left:auto; margin-right:auto;}</style>
+</head>
+<body><br><h1>Welcome to the Llama Slobber Website</h1><br><br>
+<p>
+This website is a repository for information collected by the Society of
+Learned league Obscure and Byzantine Research, from this point on referred
+to as SLOBR.  It consists of mostly web pages and download-able csv files
+that contain statistics compiled by SLOBR.  These statistics will be
+updated at the end of every season.  As of release 1.0.0, the following
+statistics are available:
+</p>
+<br>
+<h3>Locations and Schools</h3>
+<p>
+The following is a csv file of all players and locations:
+<a href="csv/locations.csv" target="_blank">click here.</a>
+</p>
+<p>
+The following is a csv file of all players and schools that they attended:
+<a href="csv/schools.csv" target="_blank">click here.</a>
+</p>
+<br>
+<h3>Llama Cycles</h3>
+<p>
+A Llama-Cycle is a pattern of repeated win-loss-tie numbers repeated for the
+entire season.  The cycle-size is the length of this pattern.  For example,
+if a llama's score is 1-1-1 after match 3, 2-2-2 after match 6, 3-3-3 after
+match 9, all the way to 8-8-8 after match 24, then this llama would have
+achieved a llama cycle of size 3.  So far, the shortest cycles found have
+been 5 matches.
+</p>
+<p>To see the shortest llama cycles, <a href="html/cycle_data.html" target="_blank">click here.</a>
+</p>
+<p>To download a csv file containing all cycles for all llamas,
+<a href="csv/wlt_cycles.csv" target="_blank">click here.</a>
+The data in the csv files
+contains fields of the form X-Y where X is the season number and Y is the
+cycle length.  For example 76-8 would mean that in season 76, there was a
+cycle of length 8 by that player.  All the numbers in the player's
+won-loss-tie record for match 16 should be twice the numbers in the player's
+match 8 record, and the won-lost-tie record for match 24 should be three times
+the numbers in match 8.
+</p>
+<br>
+<h3>WONDER Numbers</h3>
+<p>
+WONDER stands for Warren's Overtly Narcissistic Defensive Efficiency Rating.
+This metric measures how many (or fewer) match points a player would have
+if only the number of questions answered were used for scoring.
+If a llama ties a match where their opponent answered more questions correctly,
+then their WONDER number is incremented by one. If that llama wins a match
+where their oppenent answered more questions correctly, then their WONDER
+number increases by two.  If a llama wins a match where the players tie in
+total number of questions correct, then their WONDER number increase by one.
+Similarly, a player loses the WONDER number value if their opponent gains
+a WONDER number value.  This statistic was developed by Your's Truly during
+a season where his WONDER number was high.</p> 
+<p>To see the highest and lowest WONDER numbers, and to see the highest and
+lowest WONDER numbers per match played,
+<a href="html/wonder.html" target="_blank">click here.</a>
+This data looks to be skewed by how many matches a llama has played.
+The highest and lowest totals contain players who generally have played
+many matches (makes sense), and the highest and lowest averages contain
+players who have played few matches (makes sense because a smaller
+sample space is available).</p>
+<p>To download a csv file containing all WONDER numbers for all llamas,
+<a href="csv/wonder.csv" target="_blank">click here.</a>
+The fields in this csv file are the WONDER number, and the average WONDER
+value (WONDER number divided by matches played).
+</p>
+<br>
+<h3>MOPS</h3>
+<p>
+In Learned League matches, it is possible for a player to have 26 different
+scores.  0(0), 0(1), 1(1), 2(1), 3(1) ... 9(6).<br>
+We are not counting 0(F) because we do not want to encourage forfeits.
+Some llamas have commented that they have achieved all possible scores and
+wondered how often this happens and what the minimum number of matches
+were needed for a player to achieve this feat.  It turns out that roughly
+10% of all llamas have done this.  To see a list of lamas who managed
+to achieve this feat in their first 4 seasons
+<a href="html/mops.html" target="_blank">click here.</a>
+</p>
+<p>To download a csv file for all llamas
+<a href="csv/mops.csv" target="_blank">click here.</a>
+The fields in this csv file are the number of matches needed to get
+all possible scores, or the matches played so far if the player has not
+accomplished this.  The next number is the number of different scores
+needed to get all possible scores.  This is followed by a list of scores that
+the player needs. 
+</p>
+<p>
+MOPS stands for My Own Private Scorigami.  This concept was developed by
+Jon Bois for NFL scores and has been tracked by llama MattinglyD (see
+<a href="https://nflscorigami.com/" target="_blank">Scorigami</a>).
+I am hoping that
+MattinglyD is okay with this appropriation of the name.
+</p>
+<br>
+<h3>HUN</h3>
+<p>
+HUN stands for Hamill-Usui Number, a concept named after HamillB, who
+first proposed it, and UsuiW, who first implemented it.  Every Llama has
+a Hamill-Usui Number relative to every other Llama.  To compute your
+Hamill-Usui Number versus another Llama, check every question that you
+played in common with the other llama.  Add one to the numerator for
+every question that you both got right or both missed.  Divide this by
+the total number of questions that you have answered in common.  The closer
+you are to 100%, the more that you have in common with this llama.
+</p>
+<p>
+Because of the nature of this value, every player has a different HUN versus
+every other player.   A csv file of HUN data for every user would be unique
+to that user.  Because of this, the amount of time and storage needed for
+every HUN for every user would be too large for SLOBR to want to do.  Instead,
+we have provided a tar file and some simple instructions to calculate your
+own hun tables.
+</p>
+<p>
+First, on a Linux system with python 3 installed, download
+<a href="tar/hun.tar" target="_blank">this file</a>  to a local directory.
+In the example below, that directory is /tmp.  Then mkdir a fresh directory
+and cd there, and then execute the following commands (where xxx is the name
+of the llama).
+</p>
+<pre>
+tar xvf /tmp/hun.tar .
+cd llama_slobber/applications
+python find_hun.py xxx
+</pre>
+<p>
+This takes a little over one minute to execute on my machine. When finished,
+cd to generated_files.  You will see the following files there:
+<ul>
+<li>Highest_HUN_for_xxx.html -- xxx's highest 50 hun</li>
+<li>Lowest_HUN_for_xxx.html -- xxx's lowest 50 hun</li>
+<li>hun_xxx.csv -- an alphabetized list of hun values for all players</li>
+</ul>
+</p>
+<br>
+<h3>llama_slobber</h3>
+<p>
+Llama_slobber is also a python package available through pypi.org
+that contains methods to help scrape
+Learned League data and to compute these statistics.  It is open source
+python 3 code that can be cloned from github.  See
+<a href="https://github.com/wusui/llama_slobber/blob/masterREADME.md"
+target="_blank">here</a> for more details.
+</p>
+</body></html>
