@@ -12,7 +12,6 @@ def find_wlt_patterns(pinfo):
     Look for repeating patterns in the record of a player.
 
     Input:
-        player -- player name
         pinfo -- data (from get_user_data call).
     """
     result = []
@@ -42,9 +41,9 @@ def get_wlt_patterns(player):
     """
     Call get_user_data to get w-l-t record prior to calling find_wlt_patterns.
     """
-    pinfo = get_user_data(player)[1]
+    pinfo = get_user_data(player.lower())[1]
     return find_wlt_patterns(pinfo)
 
 
 if __name__ == '__main__':
-    print(get_wlt_patterns('usuiw'))
+    print(get_wlt_patterns('UsuiW'))

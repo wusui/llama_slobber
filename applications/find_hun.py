@@ -40,6 +40,7 @@ def hun_compute(username):
     """
     Scan files in question_data and compute hun values for username
     """
+    username = username.lower()
     pname = 'question_data' + os.sep + lookup_user('question_data', username)
     with open(pname, 'r') as fdesc:
         qdata = fdesc.read()

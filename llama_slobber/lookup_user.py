@@ -25,6 +25,7 @@ def lookup_user(directory, in_text):
                     entry in that file is within the range of x and y.
        in_text -- text to scan for.
     """
+    in_text = in_text.lower()
     list_to_srch = sorted(os.listdir(directory))
     left = 0
     right = len(list_to_srch) - 1

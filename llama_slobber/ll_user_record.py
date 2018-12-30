@@ -62,7 +62,8 @@ def get_user_data(player, session=get_session()):
         player -- player name
         session request
     """
-    return get_page_data(USER_DATA % player, GetUserData(), session=session)
+    return get_page_data(USER_DATA % player.lower(), GetUserData(),
+                         session=session)
 
 
 if __name__ == '__main__':

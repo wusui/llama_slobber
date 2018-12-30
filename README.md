@@ -22,7 +22,9 @@ package to aid others in doing analysis of Learned League data.
 ## Installation
 
 Llama_slobber has been packaged on the [Python Package Index website](https://pypi.org) and can be downloaded using the following
-command: `python -m pip install llama_slobber`.
+command: `python -m pip install llama_slobber`.  It also requires the requests
+packages, so if this is not installed, you should also run:
+`python -m pip install requests`.
 
 ## logindata.ini file
 
