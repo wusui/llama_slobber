@@ -32,7 +32,8 @@ class GetRundleMembers(HTMLParser):
             for apt in attrs:
                 if apt[0] == 'href':
                     if apt[1].startswith('/profiles.php'):
-                        self.lname = apt[1].split('?')[1]
+                        tindx = apt[1].find('?') + 1
+                        self.lname = apt[1][tindx:]
                 if apt[0] == 'class':
                     if apt[1] == 'flag':
                         self.notlogin = True
@@ -80,4 +81,4 @@ def get_rundle_personal(season, rundle, session=get_session()):
 
 
 if __name__ == "__main__":
-    print(dumps(get_rundle_personal(78, 'B_Pacific'), indent=4))
+    print(dumps(get_rundle_personal(79, 'E_Zephyr_Div_2'), indent=4))

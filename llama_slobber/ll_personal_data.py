@@ -67,9 +67,10 @@ def get_personal_data(person, session=get_session()):
 
     Returns: dictionary of user's metadata (Location, Gender, College)
     """
-    page = "%s/profiles.php?%s" % (LLHEADER, person)
+    page = "%s/profiles.php?%s" % (LLHEADER, person.lower())
     return get_page_data(page, GetPersonalInfo(), session=session)
 
 
 if __name__ == "__main__":
-    print(get_personal_data('usuiw'))
+    print(get_personal_data('ConryM_Illuminati=REAL?'))
+    print(get_personal_data('UsuiW'))

@@ -33,8 +33,8 @@ class GetOnedayInfo(HTMLParser):
         if tag == 'a':
             if attrs[0][0] == 'href':
                 if attrs[0][1].startswith('/oneday.php?'):
-                    parts = attrs[0][1].split('?')
-                    self.label = parts[1]
+                    tindx = attrs[0][1].find('?') + 1
+                    self.label = attrs[0][1][tindx:]
                     self.state = 1
 
     def handle_data(self, data):

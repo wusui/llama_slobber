@@ -7,12 +7,15 @@ Find a text entry inside an alphabetically arranged list of json files.
 import os
 
 
+SPLITTER_IN_DICTNAMES = '___'
+
+
 def get_wbounds(lookup_fname):
     """
-    When the text is "foo__bar.json", return ['foo', 'bar']
+    When the text is "foo___bar.json", return ['foo', 'bar']
     """
     vtext = lookup_fname.split('.')[0]
-    return vtext.split('__')
+    return vtext.split(SPLITTER_IN_DICTNAMES)
 
 
 def lookup_user(directory, in_text):
@@ -20,7 +23,7 @@ def lookup_user(directory, in_text):
     Lookup a user in a set up files.
 
     Arguments:
-       directory -- directory where every file name has the form "x__y.json"
+       directory -- directory where every file name has the form "x___y.json"
                     x and y are alphabetically ordered entries, and every
                     entry in that file is within the range of x and y.
        in_text -- text to scan for.

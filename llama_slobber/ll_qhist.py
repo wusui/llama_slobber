@@ -36,8 +36,9 @@ class GetQhist(HTMLParser):
                     self.getkey = True
             if apt[0] == 'href':
                 if apt[1].startswith('/question.php'):
-                    parts = apt[1].split('?')
-                    qvals = parts[1].split('&')
+                    tindx = apt[1].find('?') + 1
+                    partstr = apt[1][tindx:]
+                    qvals = partstr.split('&')
                     self.lastq = '-'.join(qvals)
             if apt[0] == 'src':
                 if apt[1].startswith('/images/misc/'):
@@ -71,4 +72,4 @@ def get_qhist(player, session=get_session()):
 
 
 if __name__ == "__main__":
-    print(get_qhist('UsuiW'))
+    print(get_qhist('ConryM_Illuminati=REAL?'))

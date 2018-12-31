@@ -30,10 +30,11 @@ class GetRundles(HTMLParser):
         for apt in attrs:
             if apt[0] == 'href':
                 if apt[1].startswith(STANDINGS):
-                    parts = apt[1].split('&')
-                    if '_' in parts[-1]:
-                        if parts[-1].find(self.league) >= 0:
-                            self.result.append(parts[-1])
+                    tindx = apt[1].find('&') + 1
+                    parts = apt[1][tindx:]
+                    if '_' in parts:
+                        if parts.find(self.league) >= 0:
+                            self.result.append(parts)
 
 
 @handle_conn_err

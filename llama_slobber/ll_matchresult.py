@@ -37,7 +37,8 @@ class GetMatchResult(HTMLParser):
             for apt in attrs:
                 if apt[0] == 'href':
                     if apt[1].startswith('/profiles.php?'):
-                        self.match['players'].append(apt[1].split('?')[1])
+                        tindx = apt[1].find('?') + 1
+                        self.match['players'].append(apt[1][tindx])
                         if len(self.match['players']) == 2:
                             self.result.append(self.match)
                             self.match = {'players': []}

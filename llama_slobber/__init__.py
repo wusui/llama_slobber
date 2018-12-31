@@ -27,6 +27,7 @@ from llama_slobber.find_stored_stat import find_stored_stat
 from llama_slobber.act_on_all_rundles import act_on_all_rundles
 from llama_slobber.out_csv_file import out_csv_file
 from llama_slobber.lookup_user import lookup_user
+from llama_slobber.lookup_user import SPLITTER_IN_DICTNAMES
 from llama_slobber.fmt_html_calc import inject_text
 
 name = "llama_slobber"

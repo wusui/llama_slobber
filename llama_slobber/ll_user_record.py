@@ -67,4 +67,5 @@ def get_user_data(player, session=get_session()):
 
 
 if __name__ == '__main__':
-    print(get_user_data('usuiw')[1][78])
+    print(get_user_data('UsuiW')[1][78])
+    print(get_user_data('ConryM_Illuminati=REAL?')[1][79])

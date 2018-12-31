@@ -32,7 +32,8 @@ class GetLeagueNames(HTMLParser):
         if tag == 'a':
             if attrs[0][0] == 'href':
                 if attrs[0][1].startswith(STANDINGS):
-                    self.result.append(attrs[0][1].split('&')[-1])
+                    tindx = attrs[0][1].find('&') + 1
+                    self.result.append(attrs[0][1][tindx:])
 
     def handle_data(self, data):
         """

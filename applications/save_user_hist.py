@@ -5,6 +5,7 @@ Save match history for all players
 """
 from json import dump
 from json import loads
+from llama_slobber import SPLITTER_IN_DICTNAMES
 
 
 def dowrite(name1, name2, idata, outdir):
@@ -17,7 +18,7 @@ def dowrite(name1, name2, idata, outdir):
         idata -- dictionary of match data
         outdir -- directory where data will be stored
     """
-    fname = "%s/%s__%s.json" % (outdir, name1, name2)
+    fname = "%s/%s%s%s.json" % (outdir, name1, SPLITTER_IN_DICTNAMES, name2)
     print(fname, flush=True)
     with open(fname, 'w') as fout:
         dump(idata, fout)
