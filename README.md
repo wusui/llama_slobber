@@ -66,7 +66,7 @@ which contains files that are used to produce the Llama Slobber website.
 
   * [Screen Scraping API](https://github.com/wusui/llama_slobber/blob/master/SCRAPING_API.md)
   * [Metrics API](https://github.com/wusui/llama_slobber/blob/master/METRICS_API.md)
-  * [Formatting API](https://github.com/wusui/llama_slobber/blob/master/FORMAT_API.md)
+  * [I/O API](https://github.com/wusui/llama_slobber/blob/master/IO_API.md)
  
 ## Author
 

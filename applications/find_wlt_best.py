@@ -5,13 +5,13 @@ Find players who over the course of a season repeated the same W-L-T pattern.
 """
 from operator import itemgetter
 import os
-import json
 
 from llama_slobber import find_wlt_patterns
 from llama_slobber import find_stored_stat
 from llama_slobber import lookup_user
 from llama_slobber import gen_html_page
 from llama_slobber import inject_text
+from llama_slobber import get_dir_with_field
 
 
 def find_wlt_func(odict):
@@ -72,10 +72,7 @@ def pat_fnd(name, value):
     Look in match_data directory for this player and find the cycle that was
     repeated.  Return as 'W-L-T' value.
     """
-    fname = "match_data" + os.sep + lookup_user('match_data', name)
-    with open(fname, 'r') as pfinder:
-        jstring = pfinder.read()
-    info = json.loads(jstring)
+    info = get_dir_with_field(name, 'match_data')
     stats = info[name][1][value[0]][value[1] - 1]
     return '-'.join([str(i) for i in stats])
 

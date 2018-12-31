@@ -3,7 +3,6 @@
 """
 Find hun values
 """
-import json
 import os
 import sys
 from operator import itemgetter
@@ -11,6 +10,7 @@ from llama_slobber import comp_hun
 from llama_slobber import lookup_user
 from llama_slobber import find_stored_stat
 from llama_slobber import gen_html_page
+from llama_slobber import get_dir_with_field
 
 
 def name_wrap(name):
@@ -40,11 +40,7 @@ def hun_compute(username):
     """
     Scan files in question_data and compute hun values for username
     """
-    username = username.lower()
-    pname = 'question_data' + os.sep + lookup_user('question_data', username)
-    with open(pname, 'r') as fdesc:
-        qdata = fdesc.read()
-    qinfo = json.loads(qdata)
+    qinfo = get_dir_with_field(username, 'question_data')
     result = find_stored_stat('question_data',
                               name_wrap(qinfo[username]), {})
     new_records = []

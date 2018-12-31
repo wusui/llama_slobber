@@ -1,4 +1,4 @@
-# LLAMA SLOBBER FORMATTING
+# LLAMA SLOBBER I/O
 
 Extra methods used to either format data, interface to json files, or perform
 specialized I/O.
@@ -84,5 +84,15 @@ Arguments:
 
 Read intext file. Return htmltext with intext contents added in what was a
 prevously blank parargraph.
+
+***
+
+### get_dir_with_field(name, indir):
+
+Arguments:
+  * name -- player name
+  * indir -- directory with data saved.
+
+Lookup name in indir.  Return contents of json file that has this data.
 
 ***
