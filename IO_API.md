@@ -96,3 +96,19 @@ Arguments:
 Lookup name in indir.  Return contents of json file that has this data.
 
 ***
+
+### stringify(in_fields, formats)
+
+Arguments:
+  * in_fields -- list of lists to stringify
+  * formats -- list of correspoding formats
+
+Each line of output is represented by a list inside the in_fields list.
+Stringify returns a list of strings (numbers are converted).  The formats
+parameter is a list of strings corresponding to each item in an in_fields
+line.  A '' value is just a straight str conversion.  Any other string is
+used as a format conversion string ('{:7.5}' would be a seven character
+field with 5 digits shown after the decimal point).
+
+***
+

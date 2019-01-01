@@ -61,6 +61,7 @@ print(gen_html_table('usuiw', foo['usuiw']))
 
 Most of the other files in this directory are in the application subdirectory,
 which contains files that are used to produce the Llama Slobber website.
+(https://warrensusui.com/llama_slobber/main_page.html)
 
 ## Futher Documentation
 

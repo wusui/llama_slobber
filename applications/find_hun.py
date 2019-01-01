@@ -7,10 +7,10 @@ import os
 import sys
 from operator import itemgetter
 from llama_slobber import comp_hun
-from llama_slobber import lookup_user
 from llama_slobber import find_stored_stat
 from llama_slobber import gen_html_page
 from llama_slobber import get_dir_with_field
+from llama_slobber import stringify
 
 
 def name_wrap(name):
@@ -25,15 +25,7 @@ def name_wrap(name):
     return hun_act
 
 
-def stringify(hun_list):
-    """
-    Return equivalent list with all values stringified.
-    """
-    olist = []
-    for entry in hun_list:
-        new_val = [entry[0], '{:6.5f}'.format(entry[1])]
-        olist.append(new_val)
-    return olist
+FORMATS = ['', '{:6.5f}']
 
 
 def hun_compute(username):
@@ -48,10 +40,12 @@ def hun_compute(username):
         new_records.append([person, result[person]])
     hun_list = {}
     hun_list['Lowest'] = stringify(sorted(new_records,
-                                          key=itemgetter(1))[0:50])
+                                          key=itemgetter(1))[0:50],
+                                   FORMATS)
     hun_list['Highest'] = stringify(sorted(new_records,
                                            key=itemgetter(1),
-                                           reverse=True)[1:51])
+                                           reverse=True)[1:51],
+                                    FORMATS)
     for huntype in ['Highest', 'Lowest']:
         out_info = {}
         out_info['x'] = hun_list[huntype]
@@ -62,7 +56,7 @@ def hun_compute(username):
                                                                      username)
         with open(ofile, 'w') as fdesc:
             fdesc.write(odata)
-    new_records = stringify(sorted(new_records))
+    new_records = stringify(sorted(new_records), FORMATS)
     ofile = 'generated_files' + os.sep + 'hun_%s.csv' % username
     with open(ofile, 'w') as fdesc:
         for record in new_records:

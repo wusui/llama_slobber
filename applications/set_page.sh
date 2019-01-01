@@ -43,11 +43,13 @@ chmod 0644 ${WEB_DIR}/tar/hun_values.tar
 cp ${APPDIR}/generated_files/cycle_data.html ${WEB_DIR}/html
 cp ${APPDIR}/generated_files/mops.html ${WEB_DIR}/html
 cp ${APPDIR}/generated_files/wonder.html ${WEB_DIR}/html
+cp ${APPDIR}/generated_files/oms.html ${WEB_DIR}/html
 cp ${APPDIR}/generated_files/locations.csv ${WEB_DIR}/csv 
 cp ${APPDIR}/generated_files/schools.csv ${WEB_DIR}/csv 
 cp ${APPDIR}/generated_files/wonder.csv ${WEB_DIR}/csv 
 cp ${APPDIR}/generated_files/mops.csv ${WEB_DIR}/csv 
 cp ${APPDIR}/generated_files/wlt_cycles.csv ${WEB_DIR}/csv 
+cp ${APPDIR}/generated_files/oms.csv ${WEB_DIR}/csv 
 cp ${APPDIR}/web_pages/main_page.html ${WEB_DIR}
 #
 # Copy in new web page

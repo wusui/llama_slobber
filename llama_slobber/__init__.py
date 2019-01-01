@@ -30,5 +30,6 @@ from llama_slobber.lookup_user import lookup_user
 from llama_slobber.lookup_user import SPLITTER_IN_DICTNAMES
 from llama_slobber.fmt_html_calc import inject_text
 from llama_slobber.get_dir_with_field import get_dir_with_field
+from llama_slobber.stringify import stringify
 
 name = "llama_slobber"

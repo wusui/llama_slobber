@@ -9,6 +9,7 @@ import os
 from llama_slobber import score_wonder
 from llama_slobber import find_stored_stat
 from llama_slobber import gen_html_page
+from llama_slobber import stringify
 
 
 def find_wonder(pinfo):
@@ -37,16 +38,7 @@ def find_wonder_func(odict):
     return result
 
 
-def stringify(wonder_list):
-    """
-    Return equivalent list with all values stringified.
-    """
-    olist = []
-    for entry in wonder_list:
-        new_val = [entry[0], str(entry[1]), str(entry[2]),
-                   '{:7.5f}'.format(entry[3])]
-        olist.append(new_val)
-    return olist
+FORMATS = ['', '', '', '{:7.5f}']
 
 
 def action():
@@ -67,16 +59,16 @@ def action():
     wav_list = sorted(new_records, key=itemgetter(3))[0:50]
     bav_list = sorted(new_records, key=itemgetter(3), reverse=True)[0:50]
     out_info = {}
-    out_info['highest wonder values'] = stringify(bwon_list)
-    out_info['lowest wonder values'] = stringify(wwon_list)
-    out_info['highest wonder average'] = stringify(bav_list)
-    out_info['lowest wonder average'] = stringify(wav_list)
+    out_info['highest wonder values'] = stringify(bwon_list, FORMATS)
+    out_info['lowest wonder values'] = stringify(wwon_list, FORMATS)
+    out_info['highest wonder average'] = stringify(bav_list, FORMATS)
+    out_info['lowest wonder average'] = stringify(wav_list, FORMATS)
     odata = gen_html_page(out_info, 'Wonder Numbers', 'Wonder Numbers',
                           tabhdrs=[['Name', 'Matches', 'Wonder', 'Average']])
     ofile = 'generated_files' + os.sep + 'wonder.html'
     with open(ofile, 'w') as fdesc:
         fdesc.write(odata)
-    new_records = stringify(new_records)
+    new_records = stringify(new_records, FORMATS)
     cfile = 'generated_files' + os.sep + 'wonder.csv'
     with open(cfile, 'w') as cdesc:
         for record in new_records:
