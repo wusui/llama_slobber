@@ -12,6 +12,7 @@ In the DEFAULT section of INPUTDATA, the following must be defined:
 import configparser
 import requests
 
+
 LLHEADER = 'https://www.learnedleague.com'
 LOGINFILE = LLHEADER + '/ucp.php?mode=login'
 USER_DATA = LLHEADER + '/profiles/previous.php?%s'
