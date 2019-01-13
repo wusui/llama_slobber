@@ -199,9 +199,54 @@ Arguments:
   * day -- match day number in range 1 to 25
   * rundle -- rundle name (B_Pacific, for example)
 
-Return a list of macthes.  Each match is represented by a dictionary entry
+Return a list of matches.  Each match is represented by a dictionary entry
 whose keys are 'names' and 'scores'.  The values of those entries are two
 item lists of player names, and their correspoding score (stored as characters)
+
+***
+
+### get_csv_oneday_players(quiz, session=get_session())
+
+Arguments:
+  * quiz -- one-day quiz name
+
+Returns a list of players who played this oneday.
+
+***
+
+### get_csv_ondeday_data(quiz, session=get_session())
+
+Arguments:
+  * quiz -- one-day quiz name
+
+Returns the contents of the csv file corresponding to this one-day quiz name.
+
+***
+
+### read_csv_data(url, session=get_session())
+
+Arguments:
+  * url -- url of a csv file to be read
+
+Returns a  list of lines.  Each line is a list of fields.
+
+***
+
+### parse_oneday_get_date(oneday, session=get_session())
+
+Arguments:
+  * oneday -- quiz name
+
+Returns a date value (the day that this quiz took place).
+
+***
+
+### ll_oneday_players(oneday, session=get_session())
+
+Arguments:
+  * oneday -- quiz name
+
+Returns a list of players in this oneday.
 
 ***
 
