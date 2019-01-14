@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# Copyright (c) 2018 Warren Usui, MIT License
+# Copyright (c) 2019 Warren Usui, MIT License
 # pylint: disable=W0223
 """
 Function used to find the date of a oneday.
@@ -29,9 +29,10 @@ class GetDateFromUrl(HTMLParser):
         find matchday indicator
         """
         if tag == 'h1':
-            if attrs[0][0] == 'class':
-                if attrs[0][1] == 'matchday':
-                    self.scanflag = True
+            for apt in attrs:
+                if apt[0] == 'class':
+                    if apt[1] == 'matchday':
+                         self.scanflag = True
 
     def handle_data(self, data):
         """
@@ -59,6 +60,7 @@ def parse_oneday_get_date(oneday, session=get_session()):
 
 
 if __name__ == "__main__":
+    print(parse_oneday_get_date('classic_79'))
     print(parse_oneday_get_date('mit'))
     print(parse_oneday_get_date('indy500'))
     print(parse_oneday_get_date('philiproth'))

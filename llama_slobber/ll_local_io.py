@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# Copyright (c) 2018 Warren Usui, MIT License
+# Copyright (c) 2018, 2019 Warren Usui, MIT License
 """
 Handle Local I/O and global definitions
 

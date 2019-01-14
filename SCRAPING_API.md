@@ -207,7 +207,7 @@ item lists of player names, and their correspoding score (stored as characters)
 
 ### get_csv_oneday_players(quiz, session=get_session())
 
-Arguments:
+Argument:
   * quiz -- one-day quiz name
 
 Returns a list of players who played this oneday.
@@ -216,7 +216,7 @@ Returns a list of players who played this oneday.
 
 ### get_csv_ondeday_data(quiz, session=get_session())
 
-Arguments:
+Argument:
   * quiz -- one-day quiz name
 
 Returns the contents of the csv file corresponding to this one-day quiz name.
@@ -225,7 +225,7 @@ Returns the contents of the csv file corresponding to this one-day quiz name.
 
 ### read_csv_data(url, session=get_session())
 
-Arguments:
+Argument:
   * url -- url of a csv file to be read
 
 Returns a  list of lines.  Each line is a list of fields.
@@ -234,7 +234,7 @@ Returns a  list of lines.  Each line is a list of fields.
 
 ### parse_oneday_get_date(oneday, session=get_session())
 
-Arguments:
+Argument:
   * oneday -- quiz name
 
 Returns a date value (the day that this quiz took place).
@@ -243,11 +243,20 @@ Returns a date value (the day that this quiz took place).
 
 ### ll_oneday_players(oneday, session=get_session())
 
-Arguments:
+Argument:
   * oneday -- quiz name
 
 Returns a list of players in this oneday.
 
+***
+
+### collect_onedays(year=-1, session=get_session())
+
+Argument:
+  * year -- year.  Keyword argument. If not specified, all years are scanned.
+
+Returns a list of one-day specials for the year specified.
+  
 ***
 
 ### handle_conn_err(func)

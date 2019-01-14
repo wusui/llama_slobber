@@ -15,6 +15,7 @@ from llama_slobber.ll_matchresult import get_matchresult
 from llama_slobber.ll_matchcount import get_matchcount
 from llama_slobber.ll_user_record import get_user_data
 from llama_slobber.ll_oneday_players import ll_oneday_players
+from llama_slobber.ll_collect_onedays import collect_onedays
 from llama_slobber.ll_parse_oneday_get_date import parse_oneday_get_date
 from llama_slobber.ll_read_csv_file import get_csv_oneday_players
 from llama_slobber.ll_read_csv_file import get_csv_oneday_data

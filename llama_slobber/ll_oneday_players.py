@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# Copyright (c) 2018 Warren Usui, MIT License
+# Copyright (c) 2019 Warren Usui, MIT License
 # pylint: disable=W0223
 """
 Function used to extract a list of players for a oneday

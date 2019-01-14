@@ -1,11 +1,11 @@
 #!/usr/bin/python
-# Copyright (c) 2018 Warren Usui, MIT License
+# Copyright (c) 2019 Warren Usui, MIT License
 """
 Csv file reader, and one-day utilities (one-day data is the most common
 use of csv files by Learned League).
 """
-from ll_local_io import get_session
-from ll_local_io import LLHEADER
+from llama_slobber.ll_local_io import get_session
+from llama_slobber.ll_local_io import LLHEADER
 
 
 def get_csv_oneday_players(quiz, session=get_session()):
