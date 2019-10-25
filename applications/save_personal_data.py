@@ -8,13 +8,14 @@ import sys
 import codecs
 from json import dumps
 from json import loads
+from llama_slobber import get_session
 from llama_slobber import get_season
 from llama_slobber import act_on_all_rundles
 from llama_slobber import get_rundle_personal
 from llama_slobber import out_csv_file
 
 
-def personal_by_rundle(season, rundle, payload):
+def personal_by_rundle(season, rundle, payload, session=None):
     """
     Create json file of personal information for this rundle.
 
@@ -24,15 +25,18 @@ def personal_by_rundle(season, rundle, payload):
         payload -- dictionary where 'output_directory' entry contains the
                    name of the directory where data will be stored
     """
+    if session is None:
+        session = get_session()
     print(rundle, flush=True)
-    outstr = dumps(get_rundle_personal(season, rundle), indent=4)
+    outstr = dumps(get_rundle_personal(season, rundle, session=session),
+                   indent=4)
     outdir = payload['output_directory']
     fname = "%s%s%s.json" % (outdir, os.sep, rundle)
     with open(fname, "w") as ofile:
         ofile.write(outstr)
 
 
-def personal_dict(season, rundle, payload):
+def personal_dict(season, rundle, payload, session=None):
     """
     Add to large payload dictionary.
 
@@ -41,12 +45,14 @@ def personal_dict(season, rundle, payload):
         rundle -- rundle name
         payload -- dictionary where results will be stored
     """
+    if session is None:
+        session = get_session()
     print(rundle, flush=True)
-    data = get_rundle_personal(season, rundle)
+    data = get_rundle_personal(season, rundle, session=session)
     payload.update(data)
 
 
-def save_personal_data(json_dir, out_dir):
+def save_personal_data(json_dir, out_dir, session=None):
     """
     Save personal data
 
@@ -56,16 +62,19 @@ def save_personal_data(json_dir, out_dir):
     First store all the personal data into json files named by the rundle.
     Then store all the personal data into one big json file.
     """
+    if session is None:
+        session = get_session()
     sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
-    season = get_season()
+    season = get_season(session=session)
     files_that_exist = os.listdir(json_dir)
     if len(files_that_exist) < 5:
         act_on_all_rundles(season, personal_by_rundle,
-                           {'output_directory': json_dir})
+                           {'output_directory': json_dir},
+                           session=session)
     everybody = '%s%severybody.json' % (out_dir, os.sep)
     if 'everybody.json' not in files_that_exist:
         payload = {}
-        act_on_all_rundles(season, personal_dict, payload)
+        act_on_all_rundles(season, personal_dict, payload, session=session)
         outstr = dumps(payload, indent=4)
         with open(everybody, "w") as ofile:
             ofile.write(outstr)

@@ -47,7 +47,7 @@ class GetRundleMembers(HTMLParser):
 
 
 @handle_conn_err
-def get_rundle_members(season, rundle, session=get_session()):
+def get_rundle_members(season, rundle, session=None):
     """
     Get players in a rundle
 
@@ -58,11 +58,13 @@ def get_rundle_members(season, rundle, session=get_session()):
 
     Returns list of user names of players in the rundle
     """
+    if session is None:
+        session = get_session()
     page = "%s%d&%s" % (LLSTANDINGS, season, rundle)
     return get_page_data(page, GetRundleMembers(), session=session)
 
 
-def get_rundle_personal(season, rundle, session=get_session()):
+def get_rundle_personal(season, rundle, session=None):
     """
     Call get_personal_data on all members of a rundle.
 
@@ -73,10 +75,12 @@ def get_rundle_personal(season, rundle, session=get_session()):
 
     Return personal info in a dictionary indexed by person.
     """
+    if session is None:
+        session = get_session()
     retv = {}
     plist = get_rundle_members(season, rundle, session=session)
     for person in plist:
-        retv[person] = get_personal_data(person, session)
+        retv[person] = get_personal_data(person, session=session)
     return retv
 
 

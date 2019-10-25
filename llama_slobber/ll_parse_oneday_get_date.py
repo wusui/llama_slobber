@@ -44,12 +44,14 @@ class GetDateFromUrl(HTMLParser):
 
 
 @handle_conn_err
-def parse_oneday_get_date(oneday, session=get_session()):
+def parse_oneday_get_date(oneday, session=None):
     """
     Find the date of a oneday event.
 
     Returns a date value
     """
+    if session is None:
+        session = get_session()
     urlv = "%s.php?%s" % (ONEDAYS, oneday)
     one_day_str = get_page_data(urlv, GetDateFromUrl(), session=session)
     extract = one_day_str.strip()

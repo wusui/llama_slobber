@@ -11,7 +11,7 @@ from llama_slobber.calc_hun import calc_hun
 from llama_slobber.fmt_float import format_float
 
 
-def get_rundle_comp(season, rundle, fsize, session_id=get_session(),
+def get_rundle_comp(season, rundle, fsize, session_id=None,
                     func_parm=calc_hun):
     """
     Perform a calculation between all members of a rundle.
@@ -29,6 +29,8 @@ def get_rundle_comp(season, rundle, fsize, session_id=get_session(),
         based on func_parm.  These tuples are arranged in decending value
         of this func_parm number.
     """
+    if session_id is None:
+        session_id = get_session()
     folks = get_rundle_members(season, rundle, session=session_id)
     result = {}
     for plyr in folks:

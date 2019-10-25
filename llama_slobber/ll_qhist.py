@@ -59,13 +59,15 @@ class GetQhist(HTMLParser):
 
 
 @handle_conn_err
-def get_qhist(player, session=get_session()):
+def get_qhist(player, session=None):
     """
     Extract player's question history.
 
     Returns a dict indexed by categories.  Each dict entry consists
     of a 'correct' list and a 'wrong' list of questions asked.
     """
+    if session is None:
+        session = get_session()
     pname = player.lower()
     main_data = QHIST % pname
     return get_page_data(main_data, GetQhist(pname), session=session)

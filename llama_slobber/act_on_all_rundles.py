@@ -6,12 +6,13 @@ Find all players in a given season
 """
 import sys
 import codecs
+from llama_slobber import get_session
 from llama_slobber import get_season
 from llama_slobber import get_leagues
 from llama_slobber import get_rundles
 
 
-def act_on_all_rundles(season, action, payload):
+def act_on_all_rundles(season, action, payload, session=None):
     """
     Act on all rundles
 
@@ -25,14 +26,16 @@ def act_on_all_rundles(season, action, payload):
         2. Perform operations on the rundle, payload will be other input
            parameters
     """
-    leagues = get_leagues(season)
+    if session is None:
+        session = get_session()
+    leagues = get_leagues(season, session=session)
     for league in leagues:
-        for rundle in get_rundles(season, league):
-            action(season, rundle, payload)
+        for rundle in get_rundles(season, league, session=session):
+            action(season, rundle, payload, session=session)
     return payload
 
 
-def append_action(_, rundle, payload):
+def append_action(_, rundle, payload, session=None):
     """
     Simplest action case -- append rundle name to list
 

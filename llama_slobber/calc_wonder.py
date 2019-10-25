@@ -93,19 +93,20 @@ def calc_wonder(season, rundle, session_id=None):
                entire season
     """
     wonderv = [0, -1, -2, 1, 0, -1, 2, 1, 0]
-    if not session_id:
+    if session_id is None:
         session_id = get_session()
-    current_season = get_season(session_id)
+    current_season = get_season(session=session_id)
     if season == current_season:
-        match_count = get_matchcount(session_id)
+        match_count = get_matchcount(session=session_id)
     else:
         match_count = TOTAL_MATCHES_PER_SEASON
-    pdata = get_rundle_personal(season, rundle)
+    pdata = get_rundle_personal(season, rundle, session=session_id)
     players = {}
     for plyr in pdata:
         players[plyr] = 0
     for day in range(0, match_count):
-        for match_res in get_matchresult(season, day+1, rundle):
+        for match_res in get_matchresult(season, day+1, rundle,
+                                         session=session_id):
             results = match_anal(match_res)
             players[results[0]] += wonderv[results[2]]
             players[results[1]] -= wonderv[results[2]]

@@ -56,10 +56,12 @@ class GetOnedayInfo(HTMLParser):
 
 
 @handle_conn_err
-def get_onedays(session=get_session()):
+def get_onedays(session=None):
     """
     Get oneday records from ONEDAYS page
     """
+    if session is None:
+        session = get_session()
     return get_page_data(ONEDAYS, GetOnedayInfo(), session=session)
 
 

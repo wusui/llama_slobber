@@ -56,7 +56,9 @@ class MatchDay(object):
     PSIZE = INFO_PER_USER - 1
     QTOTAL = 6
 
-    def __init__(self, season, match_day, rundle, session=get_session()):
+    def __init__(self, season, match_day, rundle, session=None):
+        if session is None:
+            session = get_session()
         self.info = {}
         self.info['season'] = season
         self.info['day'] = match_day
@@ -69,7 +71,7 @@ class MatchDay(object):
             self.info['division'] = int(parts[-1])
         page = '&'.join([str(season), str(match_day), rundle])
         self.url = MATCH_DATA % page
-        self.raw_data = get_page_data(self.url, GetMatchDay(), session)
+        self.raw_data = get_page_data(self.url, GetMatchDay(), session=session)
         if len(self.raw_data) % MatchDay.INFO_PER_USER != 0:
             raise ValueError('LL Parsing Error')
         self.num_folks = len(self.raw_data) // MatchDay.INFO_PER_USER
@@ -109,7 +111,7 @@ class MatchDay(object):
 
 
 @handle_conn_err
-def get_matchday(season, day, rundle, session=get_session()):
+def get_matchday(season, day, rundle, session=None):
     """
     Extract match day information
 
@@ -129,6 +131,8 @@ def get_matchday(season, day, rundle, session=get_session()):
         The second entry is a dictionary of values related to the entire
         match day object (league, rundle, division, day, season).
     """
+    if session is None:
+        session = get_session()
     matchday = MatchDay(season, day, rundle, session=session)
     return [matchday.get_results(), matchday.get_info()]
 
