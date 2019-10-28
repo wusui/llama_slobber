@@ -27,10 +27,10 @@ def calc_hun(player1, player2, session_id=None):
     Returns -- a HUN number in the range of 0 to 1.  A higher value indicates
                that the players are more 'like' each other.
     """
-    if not session_id:
+    if session_id is None:
         session_id = get_session()
-    plyr1 = get_qhist(player1, session_id)
-    plyr2 = get_qhist(player2, session_id)
+    plyr1 = get_qhist(player1, session=session_id)
+    plyr2 = get_qhist(player2, session=session_id)
     return comp_hun(plyr1, plyr2)
 
 

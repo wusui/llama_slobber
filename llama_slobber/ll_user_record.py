@@ -50,7 +50,7 @@ class GetUserData(HTMLParser):
 
 
 @handle_conn_err
-def get_user_data(player, session=get_session()):
+def get_user_data(player, session=None):
     """
     Return information about a user:
         Tuple of two dicts:
@@ -62,6 +62,8 @@ def get_user_data(player, session=get_session()):
         player -- player name
         session request
     """
+    if session is None:
+        session = get_session()
     return get_page_data(USER_DATA % player.lower(), GetUserData(),
                          session=session)
 

@@ -4,6 +4,7 @@
 """
 Find patterns in the game records for a player
 """
+from llama_slobber.ll_local_io import get_session
 from llama_slobber.ll_user_record import get_user_data
 
 
@@ -37,11 +38,13 @@ def find_wlt_patterns(pinfo):
     return result
 
 
-def get_wlt_patterns(player):
+def get_wlt_patterns(player, session=None):
     """
     Call get_user_data to get w-l-t record prior to calling find_wlt_patterns.
     """
-    pinfo = get_user_data(player.lower())[1]
+    if session is None:
+        session = get_session()
+    pinfo = get_user_data(player.lower(), session=session)[1]
     return find_wlt_patterns(pinfo)
 
 

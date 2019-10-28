@@ -34,7 +34,7 @@ class GetSeasonNumber(HTMLParser):
 
 
 @handle_conn_err
-def get_season(session=get_session()):
+def get_season(session=None):
     """
     Find the season number
 
@@ -43,6 +43,8 @@ def get_season(session=get_session()):
 
     Returns most recent season number
     """
+    if session is None:
+        session = get_session()
     return int(get_page_data(LLHEADER, GetSeasonNumber(), session=session))
 
 

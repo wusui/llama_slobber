@@ -63,10 +63,12 @@ class GetOneDayQuiz(HTMLParser):
 
 
 @handle_conn_err
-def collect_onedays(year=-1, session=get_session()):
+def collect_onedays(year=-1, session=None):
     """
     Year is a keyword argument.  Default is collect all.
     """
+    if session is None:
+        session = get_session()
     return get_page_data(ONEDAYS, GetOneDayQuiz(year), session=session)
 
 

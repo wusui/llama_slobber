@@ -42,7 +42,7 @@ class GetCurrentlyFinishedCount(HTMLParser):
 
 
 @handle_conn_err
-def get_matchcount(session=get_session()):
+def get_matchcount(session=None):
     """
     Find matches in current season
 
@@ -50,7 +50,9 @@ def get_matchcount(session=get_session()):
         session request
 
     """
-    return get_page_data(ARUNDLE % (get_season(), 'Pacific'),
+    if session is None:
+        session = get_session()
+    return get_page_data(ARUNDLE % (get_season(session=session), 'Pacific'),
                          GetCurrentlyFinishedCount(), session=session)
 
 

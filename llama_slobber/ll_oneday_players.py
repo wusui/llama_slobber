@@ -24,10 +24,12 @@ FILE_PATTERNS = ['/%s.shtml', '/%s.php', '.php?%s', '/results.php?%s&1']
 
 
 @handle_conn_err
-def ll_oneday_players(oneday, session=get_session()):
+def ll_oneday_players(oneday, session=None):
     """
     Extract a list of players from the oneday passed in
     """
+    if session is None:
+        session = get_session()
     dval = parse_oneday_get_date(oneday, session=session)
     indx = 0
     for boundary in DATE_BOUNDARIES:

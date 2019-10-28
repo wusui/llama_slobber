@@ -57,7 +57,7 @@ class GetMatchResult(HTMLParser):
 
 
 @handle_conn_err
-def get_matchresult(season, day, rundle, session=get_session()):
+def get_matchresult(season, day, rundle, session=None):
     """
     Extract match day results
 
@@ -72,6 +72,8 @@ def get_matchresult(season, day, rundle, session=get_session()):
             players -- list of players (2 in a match)
             score -- list of corresponding match scores (strings)
     """
+    if session is None:
+        session = get_session()
     page = '&'.join([str(season), str(day), rundle])
     this_url = MATCH_DATA % page
     return get_page_data(this_url, GetMatchResult(), session=session)

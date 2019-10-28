@@ -44,10 +44,12 @@ class GetLeagueNames(HTMLParser):
 
 
 @handle_conn_err
-def get_leagues(season, session=get_session()):
+def get_leagues(season, session=None):
     """
     Get a list of leagues for the season specified.
     """
+    if session is None:
+        session = get_session()
     main_data = LLSTANDINGS + "%d" % season
     return get_page_data(main_data, GetLeagueNames(season), session=session)
 

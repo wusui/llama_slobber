@@ -49,7 +49,7 @@ def get_session():
     return ses1
 
 
-def get_page_data(url, parser, session=get_session()):
+def get_page_data(url, parser, session=None):
     """
     Extract data from a url
 
@@ -61,6 +61,8 @@ def get_page_data(url, parser, session=get_session()):
     Returns:
         data collected by parser
     """
+    if session is None:
+        session = get_session()
     main_data = session.get(url)
     parser1 = parser
     parser1.feed(main_data.text)

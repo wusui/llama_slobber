@@ -38,10 +38,12 @@ class GetRundles(HTMLParser):
 
 
 @handle_conn_err
-def get_rundles(season, league, session=get_session()):
+def get_rundles(season, league, session=None):
     """
     Get a list of rundles for the season and league specified.
     """
+    if session is None:
+        session = get_session()
     main_data = LLSTANDINGS + "%d&%s" % (season, league)
     return get_page_data(main_data, GetRundles(season, league),
                          session=session)

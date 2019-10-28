@@ -57,7 +57,7 @@ class GetPersonalInfo(HTMLParser):
 
 
 @handle_conn_err
-def get_personal_data(person, session=get_session()):
+def get_personal_data(person, session=None):
     """
     Get information on a person
 
@@ -67,6 +67,8 @@ def get_personal_data(person, session=get_session()):
 
     Returns: dictionary of user's metadata (Location, Gender, College)
     """
+    if session is None:
+        session = get_session()
     page = "%s/profiles.php?%s" % (LLHEADER, person.lower())
     return get_page_data(page, GetPersonalInfo(), session=session)
 

@@ -5,6 +5,7 @@ Save match history for all players
 """
 from json import dump
 from json import loads
+from llama_slobber import get_session
 from llama_slobber import SPLITTER_IN_DICTNAMES
 
 
@@ -24,7 +25,7 @@ def dowrite(name1, name2, idata, outdir):
         dump(idata, fout)
 
 
-def save_user_hist(user_func, outdir):
+def save_user_hist(user_func, outdir, session=None):
     """
     Read generated_files/people.json to get players.
 
@@ -33,6 +34,8 @@ def save_user_hist(user_func, outdir):
     Store that data in match_data files.  Each file contains 100 entries
     and are named and sorted in alphabetical order
     """
+    if session is None:
+        session = get_session()
     with open('generated_files/people.json', 'r') as infile:
         intext = infile.read()
     indata = loads(intext)
@@ -43,7 +46,7 @@ def save_user_hist(user_func, outdir):
         if count % 100 == 0:
             out_data = {}
             fname = player
-        out_data[player] = user_func(player)
+        out_data[player] = user_func(player, session=session)
         if count == 0:
             continue
         if count % 100 == 99:
